@@ -6,97 +6,61 @@ import Image from "next/image";
 export function DashboardShowcase() {
   return (
     <div
+      className="w-[95%] max-w-[1351px] mt-10 lg:mt-[60px] rounded-[24px] lg:rounded-[42px] relative flex items-center justify-center overflow-visible"
       style={{
-        width: "1351.4px",
-        maxWidth: "95vw",
-        height: "791.92px",
-        marginTop: "60px",
-        borderRadius: "42px",
+        aspectRatio: "1351 / 792",
         border: "1px solid rgba(255, 255, 255, 0.6)",
         background:
           "linear-gradient(180deg, rgba(120, 30, 224, 0.05) 0%, rgba(255, 255, 255, 0.06) 100%)",
-        position: "relative",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        overflow: "visible",
       }}
     >
       {/* Left purple glow effect */}
       <div
+        className="absolute -left-[60px] lg:-left-[100px] top-0 bottom-0 w-[150px] lg:w-[250px] pointer-events-none"
         style={{
-          position: "absolute",
-          left: "-50px",
-          top: "50%",
-          transform: "translateY(-50%)",
-          width: "200px",
-          height: "400px",
           background:
-            "radial-gradient(ellipse at center, rgba(120, 30, 224, 0.15) 0%, transparent 70%)",
-          pointerEvents: "none",
+            "radial-gradient(ellipse 100% 60% at 0% 50%, rgba(180, 130, 255, 0.4) 0%, rgba(160, 100, 240, 0.2) 40%, transparent 70%)",
         }}
       />
 
       {/* Right purple glow effect */}
       <div
+        className="absolute -right-[60px] lg:-right-[100px] top-0 bottom-0 w-[150px] lg:w-[250px] pointer-events-none"
         style={{
-          position: "absolute",
-          right: "-50px",
-          top: "50%",
-          transform: "translateY(-50%)",
-          width: "200px",
-          height: "400px",
           background:
-            "radial-gradient(ellipse at center, rgba(120, 30, 224, 0.15) 0%, transparent 70%)",
-          pointerEvents: "none",
+            "radial-gradient(ellipse 100% 60% at 100% 50%, rgba(180, 130, 255, 0.4) 0%, rgba(160, 100, 240, 0.2) 40%, transparent 70%)",
         }}
       />
 
       {/* Large Dashboard Image Container */}
-      <div style={{ position: "relative" }}>
+      <div className="relative w-[96%] max-w-[1302px]">
         <Image
           src="/images/large.jpeg"
           alt="Cervantes AI Dashboard"
           width={1302}
           height={745}
           priority
-          style={{
-            width: "1301.69px",
-            height: "745.37px",
-            borderRadius: "20px",
-            objectFit: "cover",
-          }}
+          className="w-full h-auto rounded-[12px] lg:rounded-[20px] object-cover"
         />
 
         {/* White fade overlay at bottom of large image */}
         <div
+          className="absolute bottom-0 left-0 right-0 h-[80px] lg:h-[150px] rounded-b-[12px] lg:rounded-b-[20px] pointer-events-none"
           style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: "150px",
             background:
               "linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.9) 100%)",
-            borderRadius: "0 0 20px 20px",
-            pointerEvents: "none",
           }}
         />
       </div>
 
-      {/* Small Overlay Panel - Media Library */}
+      {/* Small Overlay Panel - Media Library - Responsive positioning and sizing */}
       <Image
         src="/images/small.jpeg"
         alt="Media Library Panel"
         width={476}
         height={358}
+        className="absolute w-[35%] max-w-[476px] h-auto top-[10%] lg:top-[12%] right-0 rounded-[12px] lg:rounded-[20px] hidden md:block"
         style={{
-          position: "absolute",
-          width: "475.93px",
-          height: "358.09px",
-          top: "100px",
-          right: "0px",
-          borderRadius: "20px",
           boxShadow: "-52px 17px 60px 0px rgba(0, 0, 0, 0.16)",
         }}
       />

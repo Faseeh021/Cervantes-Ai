@@ -16,6 +16,23 @@
   /* Font families */
   --font-plus-jakarta: var(--font-plus-jakarta-sans);
   --font-inter: var(--font-inter);
+
+  /* Responsive scaling - based on viewport */
+  --scale: 1;
+}
+
+/* Desktop breakpoint scaling */
+@media (max-width: 1400px) {
+  :root { --scale: 0.9; }
+}
+@media (max-width: 1280px) {
+  :root { --scale: 0.8; }
+}
+@media (max-width: 1100px) {
+  :root { --scale: 0.7; }
+}
+@media (max-width: 900px) {
+  :root { --scale: 0.6; }
 }
 
 @theme inline {
@@ -46,4 +63,296 @@ body {
 
 .font-inter {
   font-family: var(--font-inter), sans-serif;
+}
+
+.font-montserrat {
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+/* Glassmorphism effect - subtle tint, grid visible */
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* ==================== PREMIUM ANIMATIONS ==================== */
+
+/* Mesh Gradient Animation - Creates "AI Energy" effect */
+@keyframes meshPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1) rotate(0deg);
+  }
+  33% {
+    opacity: 0.8;
+    transform: scale(1.05) rotate(2deg);
+  }
+  66% {
+    opacity: 0.7;
+    transform: scale(0.98) rotate(-1deg);
+  }
+}
+
+@keyframes meshFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(10px, -10px) rotate(1deg); }
+  50% { transform: translate(-5px, 5px) rotate(-0.5deg); }
+  75% { transform: translate(5px, 10px) rotate(0.5deg); }
+}
+
+/* Blur Fade In - Premium entrance */
+@keyframes blurFadeIn {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+/* Navbar Drop */
+@keyframes navDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Arcs Fade */
+@keyframes arcsFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Shimmer Effect for Cards */
+@keyframes shimmerEffect {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Float Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+/* Gradient Movement */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ==================== ANIMATED MESH GRADIENT ==================== */
+
+.mesh-gradient {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.mesh-gradient::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(ellipse 40% 40% at 30% 30%, rgba(216, 180, 254, 0.5) 0%, transparent 70%),
+    radial-gradient(ellipse 35% 35% at 70% 20%, rgba(147, 51, 234, 0.3) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 45% at 50% 60%, rgba(120, 30, 224, 0.2) 0%, transparent 70%);
+  animation: meshFloat 20s ease-in-out infinite;
+}
+
+.mesh-gradient::after {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -30%;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(216, 180, 254, 0.4) 0%, transparent 70%);
+  animation: meshPulse 15s ease-in-out infinite;
+}
+
+/* ==================== STAGGERED REVEAL ANIMATIONS ==================== */
+
+.reveal-blur {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(20px);
+  animation: blurFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.reveal-nav {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: navDrop 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.reveal-arcs {
+  opacity: 0;
+  animation: arcsFadeIn 1s ease-out forwards;
+}
+
+/* Stagger delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.35s; }
+.stagger-4 { animation-delay: 0.5s; }
+.stagger-5 { animation-delay: 0.65s; }
+.stagger-6 { animation-delay: 0.8s; }
+
+/* ==================== PREMIUM CARD HOVER ==================== */
+
+.card-premium {
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+
+.card-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.card-premium:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(120, 30, 224, 0.15);
+  border-color: rgba(120, 30, 224, 0.2);
+}
+
+.card-premium:hover::before {
+  left: 100%;
+}
+
+/* ==================== MAGNETIC BUTTON ==================== */
+
+.btn-magnetic {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.btn-magnetic:hover {
+  box-shadow: 0 15px 40px rgba(120, 30, 224, 0.4);
+}
+
+.btn-magnetic-inner {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* ==================== LINE DRAW ANIMATION ==================== */
+
+@keyframes drawLine {
+  0% {
+    transform: scaleX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.draw-line {
+  transform: scaleX(0);
+  transform-origin: left center;
+  opacity: 0;
+}
+
+.draw-line.visible {
+  opacity: 1;
+  animation: drawLine 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ==================== CARD HOVER (Simple lift) ==================== */
+
+.card-hover {
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(120, 30, 224, 0.12);
+}
+
+/* ==================== SCROLL ANIMATIONS ==================== */
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(5px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* ==================== FLOATING ELEMENTS ==================== */
+
+.float-element {
+  animation: float 4s ease-in-out infinite;
+}
+
+.float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+/* ==================== PARALLAX CONTAINER ==================== */
+
+.parallax-container {
+  transition: transform 0.1s ease-out;
+  will-change: transform;
 }

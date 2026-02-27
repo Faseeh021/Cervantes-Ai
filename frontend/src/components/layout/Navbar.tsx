@@ -14,98 +14,55 @@ const navItems = [
 
 export function Navbar() {
   return (
-    <header
-      className="absolute left-1/2 -translate-x-1/2 flex items-center justify-between"
-      style={{
-        width: "1303px",
-        height: "61px",
-        top: "36px",
-      }}
-    >
+    <header className="absolute left-1/2 -translate-x-1/2 flex items-center justify-between w-[95%] max-w-[1303px] h-[61px] top-[36px] px-4 lg:px-0 reveal-nav">
       {/* Logo */}
-      <div style={{ width: "218px", height: "43.25px" }}>
+      <div className="flex-shrink-0">
         <Image
-          src="/images/logo.jpeg"
+          src="/images/logo.png"
           alt="Cervantes AI"
           width={218}
           height={43}
           priority
-          style={{ width: "218px", height: "43.25px", objectFit: "contain" }}
+          className="w-[140px] lg:w-[180px] xl:w-[218px] h-auto object-contain"
         />
       </div>
 
       {/* Navigation Pills - Glass Container */}
-      <div
-        className="flex items-center justify-center"
-        style={{
-          height: "61px",
-          padding: "8px",
-          background: "rgba(255, 255, 255, 0.21)",
-          borderRadius: "100px",
-          backdropFilter: "blur(10px)",
-          WebkitBackdropFilter: "blur(10px)",
-        }}
-      >
-        <div className="flex items-center" style={{ gap: "8px" }}>
+      <nav className="hidden md:flex items-center justify-center h-[56px] lg:h-[64px] px-2 lg:px-3 rounded-full glass">
+        <div className="flex items-center gap-0">
           {navItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="flex items-center justify-center"
+              className="flex items-center justify-center h-[40px] lg:h-[48px] px-5 lg:px-6 rounded-full font-plus-jakarta font-medium text-[15px] lg:text-[16px] transition-all duration-200"
               style={{
-                height: "44px",
-                padding: "0 20px",
-                background: item.active ? "#0E0E0E" : "transparent",
-                borderRadius: "100px",
-                fontFamily: "var(--font-plus-jakarta-sans), sans-serif",
-                fontWeight: 400,
-                fontSize: "16px",
-                lineHeight: "20px",
-                color: item.active ? "#FFFFFF" : "#0E0E0E",
+                background: item.active ? "#1a1a1a" : "transparent",
+                color: item.active ? "#FFFFFF" : "#1a1a1a",
               }}
             >
               {item.label}
             </Link>
           ))}
         </div>
-      </div>
+      </nav>
 
       {/* Auth Buttons */}
-      <div className="flex items-center" style={{ gap: "16px" }}>
+      <div className="flex items-center gap-2 lg:gap-4">
         {/* Login Button */}
         <Link
           href="/login"
-          className="flex items-center justify-center"
+          className="hidden sm:flex items-center justify-center h-[36px] lg:h-[42px] px-3 lg:px-4 pr-1 lg:pr-1.5 gap-2 rounded-full"
           style={{
-            width: "114.09px",
-            height: "42px",
             background: "#F8F3FD",
             border: "1px solid #EEEEEE",
-            borderRadius: "999px",
-            gap: "8px",
-            paddingLeft: "16px",
-            paddingRight: "6px",
           }}
         >
-          <span
-            style={{
-              fontFamily: "var(--font-plus-jakarta-sans), sans-serif",
-              fontWeight: 600,
-              fontSize: "16px",
-              lineHeight: "16px",
-              color: "#0E0E0E",
-            }}
-          >
+          <span className="font-plus-jakarta font-semibold text-sm lg:text-base text-[#0E0E0E]">
             Log In
           </span>
           <span
-            className="flex items-center justify-center"
-            style={{
-              width: "30px",
-              height: "30px",
-              background: "#9D4EDD",
-              borderRadius: "30px",
-            }}
+            className="flex items-center justify-center w-6 h-6 lg:w-[30px] lg:h-[30px] rounded-full"
+            style={{ background: "#9D4EDD" }}
           >
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
               <path
@@ -119,39 +76,16 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Start Free Button - Purple background with white arrow circle */}
+        {/* Start Free Button */}
         <Link
           href="/start-free"
-          className="flex items-center"
-          style={{
-            height: "42px",
-            background: "#781EE0",
-            borderRadius: "999px",
-            paddingLeft: "20px",
-            paddingRight: "5px",
-            gap: "10px",
-          }}
+          className="flex items-center h-[36px] lg:h-[42px] px-3 lg:px-5 pr-1 lg:pr-1.5 gap-2 rounded-full"
+          style={{ background: "#781EE0" }}
         >
-          <span
-            style={{
-              fontFamily: "var(--font-plus-jakarta-sans), sans-serif",
-              fontWeight: 600,
-              fontSize: "16px",
-              lineHeight: "16px",
-              color: "#FFFFFF",
-            }}
-          >
+          <span className="font-plus-jakarta font-semibold text-sm lg:text-base text-white">
             Start Free
           </span>
-          <span
-            className="flex items-center justify-center"
-            style={{
-              width: "32px",
-              height: "32px",
-              background: "#FFFFFF",
-              borderRadius: "32px",
-            }}
-          >
+          <span className="flex items-center justify-center w-6 h-6 lg:w-8 lg:h-8 bg-white rounded-full">
             <svg width="12" height="11" viewBox="0 0 12 11" fill="none">
               <path
                 d="M1 5.5H11M11 5.5L6.5 1M11 5.5L6.5 10"
