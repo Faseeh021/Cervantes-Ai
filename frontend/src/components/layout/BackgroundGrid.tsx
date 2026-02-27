@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 
 export function BackgroundGrid() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -11,10 +12,12 @@ export function BackgroundGrid() {
 
     const handleMouseMove = (e: MouseEvent) => {
       const { innerWidth, innerHeight } = window;
-      // Normalize to -1 to 1 range
+      // Normalize to -1 to 1 range for parallax
       const x = (e.clientX / innerWidth) * 2 - 1;
       const y = (e.clientY / innerHeight) * 2 - 1;
       setMousePos({ x, y });
+      // Actual cursor position for glow effect
+      setCursorPos({ x: e.clientX, y: e.clientY });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -34,6 +37,30 @@ export function BackgroundGrid() {
 
   return (
     <div className="absolute inset-x-0 top-0 pointer-events-none z-0">
+      {/* Cursor-following glow effect */}
+      <div
+        className="cursor-glow"
+        style={{
+          left: cursorPos.x,
+          top: cursorPos.y,
+          opacity: isLoaded ? 1 : 0,
+        }}
+      />
+
+      {/* Floating ambient orbs */}
+      <div
+        className="floating-orb floating-orb-1"
+        style={{ top: "15%", left: "10%" }}
+      />
+      <div
+        className="floating-orb floating-orb-2"
+        style={{ top: "60%", right: "15%" }}
+      />
+      <div
+        className="floating-orb floating-orb-3"
+        style={{ top: "40%", left: "70%" }}
+      />
+
       {/* Animated Mesh Gradient Background */}
       <div className="mesh-gradient" />
 

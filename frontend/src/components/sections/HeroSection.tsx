@@ -13,7 +13,7 @@ export function HeroSection() {
       <div className="relative z-10 flex flex-col items-center pt-[120px] md:pt-[150px] lg:pt-[180px] px-4">
         {/* Badge - Stagger 1 */}
         <div
-          className="flex flex-col items-center justify-center mb-8 lg:mb-11 reveal-blur stagger-1"
+          className="flex flex-col items-center justify-center mb-8 lg:mb-11"
           style={{
             width: "320px",
             height: "59px",
@@ -38,7 +38,7 @@ export function HeroSection() {
 
         {/* Main Heading - Stagger 2 */}
         <h1
-          className="font-plus-jakarta font-bold text-center text-[#0E0E0E] mb-6 lg:mb-8 max-w-[900px] reveal-blur stagger-2"
+          className="font-plus-jakarta font-bold text-center text-[#0E0E0E] mb-6 lg:mb-8 max-w-[900px]"
           style={{
             fontSize: "clamp(32px, 5vw, 64px)",
             lineHeight: "1.1",
@@ -51,7 +51,7 @@ export function HeroSection() {
 
         {/* Subheading - Stagger 3 */}
         <p
-          className="font-inter text-center text-[#696969] mb-8 lg:mb-10 max-w-[700px] px-4 reveal-blur stagger-3"
+          className="font-inter text-center text-[#696969] mb-8 lg:mb-10 max-w-[700px] px-4"
           style={{
             fontSize: "clamp(16px, 2vw, 20px)",
             lineHeight: "1.6",
@@ -64,7 +64,7 @@ export function HeroSection() {
         <button
           ref={magneticRef}
           onMouseLeave={handleMouseLeave}
-          className="flex items-center cursor-pointer h-[50px] lg:h-[62px] px-6 lg:px-11 rounded-full border-none mb-5 relative btn-magnetic reveal-blur stagger-4 overflow-hidden"
+          className="flex items-center cursor-pointer h-[50px] lg:h-[62px] px-6 lg:px-11 rounded-full border-none mb-5 relative btn-magnetic overflow-hidden"
           style={{
             background: "#781EE0",
             transform: `translate(${position.x}px, ${position.y}px)`,
@@ -92,12 +92,12 @@ export function HeroSection() {
         </button>
 
         {/* Credits text - Stagger 5 */}
-        <p className="font-inter text-sm lg:text-base text-[#696969] reveal-blur stagger-5">
+        <p className="font-inter text-sm lg:text-base text-[#696969]">
           Get 50 free credits • No credit card required
         </p>
 
         {/* Dashboard Showcase Section - Stagger 6 */}
-        <div className="reveal-blur stagger-6 w-full">
+        <div className="w-full">
           <DashboardShowcase />
         </div>
       </div>

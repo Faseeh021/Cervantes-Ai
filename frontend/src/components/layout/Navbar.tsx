@@ -34,7 +34,7 @@ export function Navbar() {
             <Link
               key={item.label}
               href={item.href}
-              className="flex items-center justify-center h-[40px] lg:h-[48px] px-5 lg:px-6 rounded-full font-plus-jakarta font-medium text-[15px] lg:text-[16px] transition-all duration-200"
+              className="flex items-center justify-center h-[40px] lg:h-[48px] px-5 lg:px-6 rounded-full font-plus-jakarta font-normal text-[15px] lg:text-[16px] transition-all duration-200"
               style={{
                 background: item.active ? "#1a1a1a" : "transparent",
                 color: item.active ? "#FFFFFF" : "#1a1a1a",

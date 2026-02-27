@@ -208,7 +208,16 @@ body {
   filter: blur(10px);
   transform: translateY(20px);
   animation: blurFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-fill-mode: forwards;
 }
+
+/* Ensure reveal animations respect stagger delays */
+.reveal-blur.stagger-1 { animation-delay: 0.1s; }
+.reveal-blur.stagger-2 { animation-delay: 0.2s; }
+.reveal-blur.stagger-3 { animation-delay: 0.35s; }
+.reveal-blur.stagger-4 { animation-delay: 0.5s; }
+.reveal-blur.stagger-5 { animation-delay: 0.65s; }
+.reveal-blur.stagger-6 { animation-delay: 0.8s; }
 
 .reveal-nav {
   opacity: 0;
@@ -355,4 +364,334 @@ body {
 .parallax-container {
   transition: transform 0.1s ease-out;
   will-change: transform;
+}
+
+/* ==================== SENIOR UI ENHANCEMENTS ==================== */
+
+/* Glow Pulse - for dots on orbital arcs */
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.7;
+    filter: drop-shadow(0 0 2px rgba(255,255,255,0.3));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.6));
+  }
+}
+
+.glow-dot {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* Fade up with scale - premium section reveal */
+@keyframes fadeUpScale {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.reveal-up-scale {
+  opacity: 0;
+  animation: fadeUpScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Slide in from left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.reveal-left {
+  opacity: 0;
+  animation: slideInLeft 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.reveal-right {
+  opacity: 0;
+  animation: slideInRight 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Social icon hover - lift and glow */
+.social-icon {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(126, 95, 255, 0.3);
+}
+
+/* Link hover underline animation */
+.link-hover {
+  position: relative;
+}
+
+.link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #7E5FFF;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.link-hover:hover::after {
+  width: 100%;
+}
+
+/* Dashboard float animation */
+@keyframes dashboardFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(0.5deg);
+  }
+}
+
+.float-dashboard {
+  animation: dashboardFloat 5s ease-in-out infinite;
+}
+
+/* Orbit rotation - subtle */
+@keyframes orbitRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.orbit-slow {
+  animation: orbitRotate 60s linear infinite;
+}
+
+/* Feature card hover - glassmorphism lift */
+.feature-card {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(126, 95, 255, 0), rgba(126, 95, 255, 0.2));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(126, 95, 255, 0.12);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+/* Step number pulse */
+@keyframes stepPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(120, 30, 224, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(120, 30, 224, 0);
+  }
+}
+
+.step-number {
+  transition: transform 0.3s ease;
+}
+
+.step-number:hover {
+  transform: scale(1.1);
+  animation: stepPulse 1.5s ease-in-out infinite;
+}
+
+/* Text gradient animation */
+@keyframes textGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.text-gradient-animate {
+  background: linear-gradient(90deg, #781EE0, #7E5FFF, #9D4EDD, #781EE0);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGradient 4s ease-in-out infinite;
+}
+
+/* Smooth section transitions */
+section {
+  transition: opacity 0.3s ease;
+}
+
+/* Button arrow animation */
+@keyframes arrowBounce {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+.btn-arrow:hover svg {
+  animation: arrowBounce 0.6s ease-in-out infinite;
+}
+
+/* Footer link stagger */
+.footer-link {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #7E5FFF;
+  transform: translateX(3px);
+}
+
+/* ==================== ORBITAL CIRCLE ANIMATIONS ==================== */
+
+/* Slow orbit rotation */
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbitSpinReverse {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+.orbit-spin {
+  animation: orbitSpin 25s linear infinite;
+  transform-origin: center center;
+}
+
+.orbit-spin-reverse {
+  animation: orbitSpinReverse 35s linear infinite;
+  transform-origin: center center;
+}
+
+/* Arc ping/pulse effect for dots */
+@keyframes arcPing {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+    filter: drop-shadow(0 0 0 rgba(255,255,255,0));
+  }
+  50% {
+    transform: scale(1.8);
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(255,255,255,0.8));
+  }
+}
+
+.arc-dot {
+  animation: arcPing 3s ease-in-out infinite;
+}
+
+.arc-dot-1 { animation-delay: 0s; }
+.arc-dot-2 { animation-delay: 0.5s; }
+.arc-dot-3 { animation-delay: 1s; }
+.arc-dot-4 { animation-delay: 1.5s; }
+.arc-dot-5 { animation-delay: 2s; }
+.arc-dot-6 { animation-delay: 2.5s; }
+
+/* ==================== CURSOR FOLLOW GLOW ==================== */
+
+.cursor-glow {
+  position: fixed;
+  pointer-events: none;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(120, 30, 224, 0.08) 0%,
+    rgba(126, 95, 255, 0.04) 40%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+/* ==================== FLOATING ORBS ==================== */
+
+@keyframes floatOrb {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.12;
+  }
+  25% {
+    transform: translate(30px, -20px) scale(1.05);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translate(-10px, 15px) scale(0.95);
+    opacity: 0.1;
+  }
+  75% {
+    transform: translate(20px, 10px) scale(1.02);
+    opacity: 0.14;
+  }
+}
+
+.floating-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(126, 95, 255, 0.3) 0%, transparent 70%);
+  filter: blur(40px);
+  animation: floatOrb 12s ease-in-out infinite;
+}
+
+.floating-orb-1 {
+  width: 200px;
+  height: 200px;
+  animation-delay: 0s;
+}
+
+.floating-orb-2 {
+  width: 150px;
+  height: 150px;
+  animation-delay: 4s;
+}
+
+.floating-orb-3 {
+  width: 180px;
+  height: 180px;
+  animation-delay: 8s;
 }

@@ -5,6 +5,8 @@ import { FeaturesSection } from "@/components/sections/FeaturesSection";
 import { WhyChooseSection } from "@/components/sections/WhyChooseSection";
 import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
 import { DemoPreviewSection } from "@/components/sections/DemoPreviewSection";
+import { TrustedCreatorsSection } from "@/components/sections/TrustedCreatorsSection";
+import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
   return (
@@ -16,6 +18,8 @@ export default function Home() {
       <WhyChooseSection />
       <HowItWorksSection />
       <DemoPreviewSection />
+      <TrustedCreatorsSection />
+      <Footer />
     </main>
   );
 }
