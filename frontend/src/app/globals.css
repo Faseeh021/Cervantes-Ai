@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+:root {
+  /* Colors from Figma */
+  --background: #ffffff;
+  --foreground: #0E0E0E;
+  --text-primary: #0E0E0E;
+  --text-secondary: #696969;
+  --purple-primary: #781EE0;
+  --purple-light: #781EE01A;
+  --purple-button: #9D4EDD;
+  --border-color: #EEEEEE;
+  --nav-bg: #FFFFFF36;
+  --button-bg: #F8F3FD;
+
+  /* Font families */
+  --font-plus-jakarta: var(--font-plus-jakarta-sans);
+  --font-inter: var(--font-inter);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-purple-primary: var(--purple-primary);
+  --color-purple-light: var(--purple-light);
+  --color-purple-button: var(--purple-button);
+  --color-border: var(--border-color);
+  --color-nav-bg: var(--nav-bg);
+  --color-button-bg: var(--button-bg);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-plus-jakarta-sans);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+/* Custom utility classes */
+.font-plus-jakarta {
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
+}
+
+.font-inter {
+  font-family: var(--font-inter), sans-serif;
+}
