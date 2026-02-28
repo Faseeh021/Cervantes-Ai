@@ -6,7 +6,7 @@ import Image from "next/image";
 export function DashboardShowcase() {
   return (
     <div
-      className="w-[95%] sm:w-[92%] max-w-[1351px] mt-6 sm:mt-8 lg:mt-10 rounded-[16px] sm:rounded-[24px] lg:rounded-[42px] relative flex items-center justify-center overflow-visible mx-auto dashboard-float"
+      className="w-[95%] sm:w-[92%] lg:w-[90%] xl:w-[88%] 2xl:w-[85%] max-w-[1351px] mt-6 sm:mt-8 lg:mt-10 xl:mt-12 rounded-[16px] sm:rounded-[24px] lg:rounded-[36px] xl:rounded-[42px] relative flex items-center justify-center overflow-visible mx-auto dashboard-float"
       style={{
         aspectRatio: "1351 / 792",
         border: "1px solid rgba(255, 255, 255, 0.6)",
@@ -33,7 +33,7 @@ export function DashboardShowcase() {
       />
 
       {/* Large Dashboard Image Container with glow */}
-      <div className="relative w-[94%] sm:w-[96%] max-w-[1302px] dashboard-glow rounded-[14px] sm:rounded-[22px] lg:rounded-[38px] overflow-hidden">
+      <div className="relative w-[94%] sm:w-[96%] lg:w-[97%] max-w-[1302px] dashboard-glow rounded-[14px] sm:rounded-[22px] lg:rounded-[32px] xl:rounded-[38px] overflow-hidden">
         <Image
           src="/images/large.jpeg"
           alt="Cervantes AI Dashboard"
@@ -45,7 +45,7 @@ export function DashboardShowcase() {
 
         {/* White fade overlay at bottom */}
         <div
-          className="absolute bottom-0 left-0 right-0 h-[30px] sm:h-[50px] lg:h-[80px] pointer-events-none"
+          className="absolute bottom-0 left-0 right-0 h-[30px] sm:h-[50px] lg:h-[70px] xl:h-[80px] pointer-events-none"
           style={{
             background:
               "linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.9) 100%)",
@@ -59,7 +59,7 @@ export function DashboardShowcase() {
         alt="Media Library Panel"
         width={476}
         height={358}
-        className="absolute w-[40%] sm:w-[38%] lg:w-[35%] max-w-[476px] h-auto top-[8%] sm:top-[10%] lg:top-[12%] right-0 rounded-[8px] sm:rounded-[12px] lg:rounded-[20px]"
+        className="absolute w-[40%] sm:w-[38%] md:w-[36%] lg:w-[35%] xl:w-[34%] max-w-[476px] h-auto top-[8%] sm:top-[10%] lg:top-[12%] right-0 rounded-[8px] sm:rounded-[12px] lg:rounded-[18px] xl:rounded-[20px]"
         style={{
           boxShadow: "-20px 8px 30px 0px rgba(0, 0, 0, 0.12)",
         }}
