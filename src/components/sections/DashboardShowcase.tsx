@@ -47,7 +47,7 @@ export function DashboardShowcase() {
       />
 
       {/* Dashboard Image Container */}
-      <div className="relative rounded-[12px] sm:rounded-[18px] lg:rounded-[28px] overflow-hidden border border-gray-200/60">
+      <div className="relative rounded-[12px] sm:rounded-[18px] lg:rounded-[28px] overflow-hidden">
         <Image
           src="/images/dashboard.png"
           alt="Cervantes AI Dashboard"

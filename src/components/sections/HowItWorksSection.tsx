@@ -57,7 +57,7 @@ export function HowItWorksSection() {
           background: "linear-gradient(180deg, rgba(120, 30, 224, 0.08) 0%, rgba(147, 51, 234, 0.12) 50%, rgba(120, 30, 224, 0.08) 100%)",
         }}
       >
-        {/* Grid pattern overlay */}
+        {/* Vertical lines only - thin */}
         <div
           className="absolute inset-0"
           style={{
@@ -65,19 +65,12 @@ export function HowItWorksSection() {
               repeating-linear-gradient(
                 90deg,
                 transparent,
-                transparent 39px,
-                rgba(120, 30, 224, 0.05) 39px,
-                rgba(120, 30, 224, 0.05) 40px
-              ),
-              repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 39px,
-                rgba(120, 30, 224, 0.05) 39px,
-                rgba(120, 30, 224, 0.05) 40px
+                transparent 69.5px,
+                rgba(120, 30, 224, 0.06) 69.5px,
+                rgba(120, 30, 224, 0.06) 70px
               )
             `,
-            backgroundSize: "40px 40px",
+            backgroundSize: "70px 100%",
           }}
         />
         {/* Mobile glass shimmer overlay */}
