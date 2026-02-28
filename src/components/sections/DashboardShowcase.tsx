@@ -33,7 +33,7 @@ export function DashboardShowcase() {
       />
 
       {/* Large Dashboard Image Container with glow */}
-      <div className="relative w-[94%] sm:w-[96%] max-w-[1302px] dashboard-glow rounded-[14px] sm:rounded-[22px] lg:rounded-[38px] overflow-hidden shadow-2xl">
+      <div className="relative w-[94%] sm:w-[96%] max-w-[1302px] dashboard-glow rounded-[14px] sm:rounded-[22px] lg:rounded-[38px] overflow-hidden">
         <Image
           src="/images/large.jpeg"
           alt="Cervantes AI Dashboard"
@@ -53,15 +53,15 @@ export function DashboardShowcase() {
         />
       </div>
 
-      {/* Small Overlay Panel - hidden on mobile/tablet */}
+      {/* Small Overlay Panel - visible on all screens */}
       <Image
         src="/images/small.jpeg"
         alt="Media Library Panel"
         width={476}
         height={358}
-        className="absolute w-[35%] max-w-[476px] h-auto top-[10%] lg:top-[12%] right-0 rounded-[12px] lg:rounded-[20px] hidden lg:block"
+        className="absolute w-[40%] sm:w-[38%] lg:w-[35%] max-w-[476px] h-auto top-[8%] sm:top-[10%] lg:top-[12%] right-0 rounded-[8px] sm:rounded-[12px] lg:rounded-[20px]"
         style={{
-          boxShadow: "-52px 17px 60px 0px rgba(0, 0, 0, 0.16)",
+          boxShadow: "-20px 8px 30px 0px rgba(0, 0, 0, 0.12)",
         }}
       />
     </div>
