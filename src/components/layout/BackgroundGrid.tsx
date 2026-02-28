@@ -119,8 +119,8 @@ export function BackgroundGrid() {
             transition: "transform 0.15s ease-out",
           }}
         >
-          <circle cx="-100" cy="400" r="400" opacity="0.6" />
-          <circle cx="-100" cy="400" r="600" opacity="0.4" />
+          <circle cx="-100" cy="400" r="300" opacity="0.6" />
+          <circle cx="-100" cy="400" r="450" opacity="0.4" />
         </g>
         {/* Dots ON left arc - with parallax */}
         <g
@@ -130,12 +130,14 @@ export function BackgroundGrid() {
             transition: "transform 0.1s ease-out",
           }}
         >
-          <circle cx="165" cy="100" r="3" />
-          <circle cx="287" cy="300" r="3" />
-          <circle cx="246" cy="600" r="3" />
-          <circle cx="387" cy="50" r="3" />
-          <circle cx="466" cy="200" r="3" />
-          <circle cx="420" cy="700" r="3" />
+          {/* On inner arc r=300 */}
+          <circle cx="50" cy="140" r="3" />
+          <circle cx="200" cy="400" r="3" />
+          <circle cx="93" cy="630" r="3" />
+          {/* On outer arc r=450 */}
+          <circle cx="189" cy="55" r="3" />
+          <circle cx="343" cy="478" r="3" />
+          <circle cx="158" cy="750" r="3" />
         </g>
 
         {/* RIGHT ORBIT - with parallax */}
@@ -149,8 +151,8 @@ export function BackgroundGrid() {
             transition: "transform 0.15s ease-out",
           }}
         >
-          <circle cx="1540" cy="400" r="450" opacity="0.6" />
-          <circle cx="1540" cy="400" r="700" opacity="0.4" />
+          <circle cx="1540" cy="400" r="340" opacity="0.6" />
+          <circle cx="1540" cy="400" r="520" opacity="0.4" />
         </g>
         {/* Dots ON right arc - with parallax */}
         <g
@@ -160,12 +162,14 @@ export function BackgroundGrid() {
             transition: "transform 0.1s ease-out",
           }}
         >
-          <circle cx="1205" cy="100" r="3" />
-          <circle cx="1090" cy="400" r="3" />
-          <circle cx="1257" cy="700" r="3" />
-          <circle cx="908" cy="100" r="3" />
-          <circle cx="847" cy="500" r="3" />
-          <circle cx="953" cy="700" r="3" />
+          {/* On inner arc r=340 */}
+          <circle cx="1321" cy="140" r="3" />
+          <circle cx="1200" cy="400" r="3" />
+          <circle cx="1321" cy="660" r="3" />
+          {/* On outer arc r=520 */}
+          <circle cx="1142" cy="66" r="3" />
+          <circle cx="1022" cy="445" r="3" />
+          <circle cx="1142" cy="734" r="3" />
         </g>
       </svg>
     </div>
