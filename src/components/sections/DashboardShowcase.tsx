@@ -9,7 +9,6 @@ export function DashboardShowcase() {
       className="w-[95%] sm:w-[92%] lg:w-[90%] xl:w-[88%] 2xl:w-[85%] max-w-[1351px] mt-6 sm:mt-8 lg:mt-10 xl:mt-12 rounded-[16px] sm:rounded-[24px] lg:rounded-[36px] xl:rounded-[42px] relative flex items-center justify-center overflow-visible mx-auto dashboard-float"
       style={{
         aspectRatio: "1351 / 792",
-        border: "1px solid rgba(255, 255, 255, 0.6)",
         background:
           "linear-gradient(180deg, rgba(120, 30, 224, 0.05) 0%, rgba(255, 255, 255, 0.06) 100%)",
       }}
