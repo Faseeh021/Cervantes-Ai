@@ -168,20 +168,12 @@ export function Footer() {
             </h3>
             <ul className="space-y-3 sm:space-y-[18px]">
               <li className="flex items-center gap-3">
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="none" className="flex-shrink-0">
-                  <path d="M18.308 15.275C18.308 15.575 18.242 15.883 18.1 16.183C17.958 16.483 17.775 16.767 17.533 17.033C17.117 17.492 16.658 17.825 16.142 18.042C15.633 18.258 15.083 18.367 14.492 18.367C13.633 18.367 12.717 18.158 11.75 17.733C10.783 17.308 9.817 16.767 8.858 16.108C7.892 15.442 6.975 14.708 6.1 13.9C5.233 13.083 4.458 12.217 3.775 11.3C3.1 10.383 2.558 9.467 2.158 8.558C1.758 7.642 1.558 6.767 1.558 5.933C1.558 5.358 1.658 4.808 1.858 4.3C2.058 3.783 2.383 3.308 2.833 2.883C3.383 2.35 3.983 2.083 4.617 2.083C4.858 2.083 5.1 2.133 5.317 2.233C5.542 2.333 5.742 2.483 5.9 2.7L7.825 5.508C7.983 5.717 8.1 5.908 8.175 6.092C8.258 6.267 8.3 6.442 8.3 6.6C8.3 6.8 8.242 7 8.125 7.192C8.017 7.383 7.858 7.583 7.658 7.783L7.033 8.433C6.942 8.525 6.9 8.633 6.9 8.767C6.9 8.833 6.908 8.892 6.925 8.958C6.95 9.025 6.975 9.075 6.992 9.125C7.15 9.408 7.417 9.775 7.792 10.217C8.175 10.658 8.583 11.108 9.025 11.558C9.483 12.008 9.925 12.425 10.375 12.808C10.817 13.183 11.183 13.442 11.475 13.6C11.517 13.617 11.567 13.642 11.625 13.667C11.692 13.692 11.758 13.7 11.833 13.7C11.975 13.7 12.083 13.65 12.175 13.558L12.8 12.942C13.008 12.733 13.208 12.575 13.4 12.475C13.592 12.358 13.783 12.3 13.992 12.3C14.15 12.3 14.317 12.333 14.5 12.408C14.683 12.483 14.875 12.6 15.083 12.75L17.925 14.7C18.142 14.858 18.292 15.042 18.383 15.258C18.467 15.475 18.517 15.675 18.308 15.275Z" stroke="#4A4A4A" strokeWidth="1.5" strokeMiterlimit="10"/>
-                </svg>
-                <span className="font-plus-jakarta text-sm sm:text-base" style={{ fontWeight: 400, color: "#4A4A4A" }}>
-                  +1 (800) 123-4567
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
                 <svg width="18" height="14" viewBox="0 0 20 16" fill="none" className="flex-shrink-0">
                   <path d="M17 1H3C1.9 1 1 1.9 1 3V13C1 14.1 1.9 15 3 15H17C18.1 15 19 14.1 19 13V3C19 1.9 18.1 1 17 1Z" stroke="#4A4A4A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   <path d="M19 3L10 9L1 3" stroke="#4A4A4A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
                 <span className="font-plus-jakarta text-sm sm:text-base break-all" style={{ fontWeight: 400, color: "#4A4A4A" }}>
-                  support@yourplatform.com
+                  info@cervantesai.com
                 </span>
               </li>
               <li className="flex items-start gap-3">

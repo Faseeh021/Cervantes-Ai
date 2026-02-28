@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import Image from "next/image";
+import { TypewriterDemo } from "../demo";
 
 export function DemoPreviewSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -86,28 +86,8 @@ export function DemoPreviewSection() {
           Type an idea. Watch it turn into content.
         </p>
 
-        {/* Dashboard Image */}
-        <div
-          className="w-full max-w-[1278px] animate-on-scroll rounded-2xl sm:rounded-xl overflow-hidden"
-          style={{
-            background: "linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(250,248,255,0.8) 100%)",
-            backdropFilter: "blur(10px)",
-            WebkitBackdropFilter: "blur(10px)",
-            border: "1px solid rgba(120, 30, 224, 0.1)",
-            boxShadow: "0 20px 60px rgba(120, 30, 224, 0.1), inset 0 1px 0 rgba(255,255,255,0.8)",
-            padding: "8px",
-            transitionDelay: "0.2s",
-          }}
-        >
-          <Image
-            src="/images/dashboard2.png"
-            alt="Cervantes AI Dashboard Preview"
-            width={1278}
-            height={803}
-            className="w-full h-auto"
-            priority
-          />
-        </div>
+        {/* Interactive Typewriter Demo */}
+        <TypewriterDemo className="w-full max-w-[900px] animate-on-scroll" />
       </div>
     </section>
   );
