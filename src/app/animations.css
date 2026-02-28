@@ -1,0 +1,196 @@
+/* ==================== KEYFRAME ANIMATIONS ==================== */
+
+@keyframes meshPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1) rotate(0deg); }
+  33% { opacity: 0.8; transform: scale(1.05) rotate(2deg); }
+  66% { opacity: 0.7; transform: scale(0.98) rotate(-1deg); }
+}
+
+@keyframes meshFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(10px, -10px) rotate(1deg); }
+  50% { transform: translate(-5px, 5px) rotate(-0.5deg); }
+  75% { transform: translate(5px, 10px) rotate(0.5deg); }
+}
+
+@keyframes blurFadeIn {
+  from { opacity: 0; filter: blur(10px); transform: translateY(20px); }
+  to { opacity: 1; filter: blur(0); transform: translateY(0); }
+}
+
+@keyframes navDrop {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes arcsFadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes drawLine {
+  0% { transform: scaleX(0); opacity: 1; }
+  100% { transform: scaleX(1); opacity: 1; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.7; filter: drop-shadow(0 0 2px rgba(255,255,255,0.3)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 8px rgba(255,255,255,0.6)); }
+}
+
+@keyframes stepPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(120, 30, 224, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(120, 30, 224, 0); }
+}
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbitSpinReverse {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes arcPing {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.8); opacity: 1; filter: drop-shadow(0 0 6px rgba(255,255,255,0.8)); }
+}
+
+@keyframes floatOrb {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.12; }
+  25% { transform: translate(30px, -20px) scale(1.05); opacity: 0.15; }
+  50% { transform: translate(-10px, 15px) scale(0.95); opacity: 0.1; }
+  75% { transform: translate(20px, 10px) scale(1.02); opacity: 0.14; }
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+/* ==================== ANIMATION CLASSES ==================== */
+
+.reveal-blur {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(20px);
+  animation: blurFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.reveal-nav {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: navDrop 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.reveal-arcs {
+  opacity: 0;
+  animation: arcsFadeIn 1s ease-out forwards;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.35s; }
+.stagger-4 { animation-delay: 0.5s; }
+.stagger-5 { animation-delay: 0.65s; }
+.stagger-6 { animation-delay: 0.8s; }
+
+.draw-line {
+  transform: scaleX(0);
+  transform-origin: left center;
+  opacity: 0;
+}
+
+.draw-line.visible {
+  opacity: 1;
+  animation: drawLine 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(5px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.float-element { animation: float 4s ease-in-out infinite; }
+
+.orbit-spin {
+  animation: orbitSpin 25s linear infinite;
+  transform-origin: center center;
+}
+
+.orbit-spin-reverse {
+  animation: orbitSpinReverse 35s linear infinite;
+  transform-origin: center center;
+}
+
+.arc-dot { animation: arcPing 3s ease-in-out infinite; }
+.arc-dot-1 { animation-delay: 0s; }
+.arc-dot-2 { animation-delay: 0.5s; }
+.arc-dot-3 { animation-delay: 1s; }
+.arc-dot-4 { animation-delay: 1.5s; }
+.arc-dot-5 { animation-delay: 2s; }
+.arc-dot-6 { animation-delay: 2.5s; }
+
+.floating-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(126, 95, 255, 0.3) 0%, transparent 70%);
+  filter: blur(40px);
+  animation: floatOrb 12s ease-in-out infinite;
+}
+
+.floating-orb-1 { width: 200px; height: 200px; animation-delay: 0s; }
+.floating-orb-2 { width: 150px; height: 150px; animation-delay: 4s; }
+.floating-orb-3 { width: 180px; height: 180px; animation-delay: 8s; }
+
+/* Mobile floating orbs - smaller sizes */
+.floating-orb-1-mobile { width: 100px; height: 100px; animation-delay: 0s; }
+.floating-orb-2-mobile { width: 80px; height: 80px; animation-delay: 4s; }
+.floating-orb-3-mobile { width: 90px; height: 90px; animation-delay: 8s; }
+
+/* Mobile orbital spin animations - slower for performance */
+.orbit-spin-mobile {
+  animation: orbitSpin 50s linear infinite;
+  transform-origin: center center;
+}
+
+.orbit-spin-reverse-mobile {
+  animation: orbitSpinReverse 60s linear infinite;
+  transform-origin: center center;
+}
+
+.btn-arrow:hover svg { animation: arrowBounce 0.6s ease-in-out infinite; }
+
+/* ==================== REDUCED MOTION ==================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .animate-on-scroll, .reveal-blur, .reveal-nav, .reveal-arcs {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
+  }
+  .draw-line { transform: scaleX(1); opacity: 1; }
+}

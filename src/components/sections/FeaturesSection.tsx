@@ -210,13 +210,22 @@ export function FeaturesSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full py-16 lg:py-24 px-8 lg:px-16">
-      <div className="max-w-[1200px] mx-auto">
+    <section ref={sectionRef} className="relative w-full pt-12 sm:pt-16 lg:pt-24 pb-12 sm:pb-16 lg:pb-24 px-4 sm:px-6 md:px-8 lg:px-16">
+      {/* Mobile glass gradient overlay */}
+      <div
+        className="absolute inset-0 md:hidden"
+        style={{
+          background: "linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(248,245,255,0.5) 50%, rgba(255,255,255,0.8) 100%)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
+        }}
+      />
+      <div className="relative max-w-[1200px] mx-auto">
         {/* Main Heading */}
         <h2
-          className="font-plus-jakarta font-bold text-center text-[#0E0E0E] mb-4 animate-on-scroll"
+          className="font-plus-jakarta font-bold text-center text-[#0E0E0E] mb-3 sm:mb-4 animate-on-scroll px-2"
           style={{
-            fontSize: "clamp(36px, 5vw, 64px)",
+            fontSize: "clamp(28px, 5vw, 64px)",
             lineHeight: "1.15",
             letterSpacing: "-0.03em",
           }}
@@ -228,9 +237,9 @@ export function FeaturesSection() {
 
         {/* Subheading */}
         <p
-          className="font-plus-jakarta font-normal text-center text-[#696969] mb-12 lg:mb-20 animate-on-scroll"
+          className="font-plus-jakarta font-normal text-center text-[#696969] mb-8 sm:mb-12 lg:mb-20 animate-on-scroll px-4"
           style={{
-            fontSize: "clamp(16px, 2vw, 22px)",
+            fontSize: "clamp(14px, 2vw, 22px)",
             lineHeight: "1.6",
             transitionDelay: "0.1s",
           }}
@@ -238,30 +247,33 @@ export function FeaturesSection() {
           From a simple prompt to a complete content workflow.
         </p>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-5 justify-items-center">
+        {/* Features Grid - improved mobile layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
           {features.map((feature, index) => (
             <div
               key={feature.title}
-              className="flex flex-col items-center justify-center px-8 py-10 w-full max-w-[420px] card-hover cursor-pointer animate-on-scroll"
+              className="flex flex-col items-center justify-center px-5 sm:px-6 md:px-8 py-8 sm:py-10 w-full card-hover cursor-pointer animate-on-scroll mobile-glass-card"
               style={{
-                minHeight: "280px",
-                borderRadius: "12px",
-                background: "rgba(120, 30, 224, 0.06)",
+                minHeight: "auto",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,245,255,0.95) 50%, rgba(240,235,255,0.9) 100%)",
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
+                border: "1px solid rgba(120, 30, 224, 0.1)",
+                boxShadow: "0 8px 32px rgba(120, 30, 224, 0.08), inset 0 1px 0 rgba(255,255,255,0.8)",
                 transitionDelay: `${0.1 * (index + 1)}s`,
               }}
             >
               {/* Icon */}
-              <div className="mb-5 transition-transform duration-300 group-hover:scale-110">
+              <div className="mb-4 sm:mb-5 transition-transform duration-300 group-hover:scale-110">
                 <FeatureIcon type={feature.icon} />
               </div>
 
               {/* Title */}
               <h3
-                className="font-plus-jakarta font-bold text-center text-[#000000] mb-3"
+                className="font-plus-jakarta font-bold text-center text-[#000000] mb-2 sm:mb-3 text-lg sm:text-xl md:text-[22px]"
                 style={{
-                  fontSize: "22px",
-                  lineHeight: "28px",
+                  lineHeight: "1.3",
                 }}
               >
                 {feature.title}
@@ -269,10 +281,9 @@ export function FeaturesSection() {
 
               {/* Description */}
               <p
-                className="font-plus-jakarta font-normal text-center text-[#696969] max-w-[320px]"
+                className="font-plus-jakarta font-normal text-center text-[#696969] text-sm sm:text-base max-w-[320px]"
                 style={{
-                  fontSize: "16px",
-                  lineHeight: "26px",
+                  lineHeight: "1.6",
                 }}
               >
                 {feature.description}

@@ -114,13 +114,32 @@ export function WhyChooseSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full pt-8 lg:pt-12 pb-20 lg:pb-32 px-8 lg:px-16">
-      <div className="max-w-[1300px] mx-auto">
+    <section ref={sectionRef} className="relative w-full pt-4 sm:pt-6 lg:pt-10 pb-12 sm:pb-16 lg:pb-24 px-4 sm:px-6 md:px-8 lg:px-16 overflow-hidden">
+      {/* Mobile premium gradient background */}
+      <div
+        className="absolute inset-0 md:hidden"
+        style={{
+          background: "linear-gradient(135deg, rgba(248,245,255,0.9) 0%, rgba(255,255,255,0.95) 50%, rgba(245,240,255,0.9) 100%)",
+        }}
+      />
+      {/* Decorative gradient orb */}
+      <div
+        className="absolute md:hidden rounded-full"
+        style={{
+          width: "200px",
+          height: "200px",
+          top: "20%",
+          right: "-50px",
+          background: "radial-gradient(circle, rgba(120,30,224,0.15) 0%, transparent 70%)",
+          filter: "blur(40px)",
+        }}
+      />
+      <div className="relative max-w-[1300px] mx-auto">
         {/* Main Heading */}
         <h2
-          className="font-plus-jakarta font-bold text-center text-[#0E0E0E] mb-4 animate-on-scroll"
+          className="font-plus-jakarta font-bold text-center text-[#0E0E0E] mb-3 sm:mb-4 animate-on-scroll px-2"
           style={{
-            fontSize: "clamp(32px, 5vw, 64px)",
+            fontSize: "clamp(26px, 5vw, 64px)",
             lineHeight: "1.15",
             letterSpacing: "-0.03em",
           }}
@@ -133,7 +152,7 @@ export function WhyChooseSection() {
 
         {/* Subheading */}
         <p
-          className="font-plus-jakarta font-normal text-center text-[#696969] mb-12 lg:mb-20 animate-on-scroll text-lg lg:text-[22px]"
+          className="font-plus-jakarta font-normal text-center text-[#696969] mb-8 sm:mb-12 lg:mb-20 animate-on-scroll text-base sm:text-lg lg:text-[22px] px-4"
           style={{
             lineHeight: "1.6",
             transitionDelay: "0.1s",
@@ -142,31 +161,35 @@ export function WhyChooseSection() {
           Built with creators in mind. Designed for real results.
         </p>
 
-        {/* Benefits Grid - 3 boxes */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-5 justify-items-center">
+        {/* Benefits Grid - responsive 1/2/3 columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
           {benefits.map((benefit, index) => (
             <div
               key={benefit.title}
-              className="flex flex-col items-center justify-center px-8 py-10 w-full max-w-[420px] card-hover cursor-pointer animate-on-scroll"
+              className={`flex flex-col items-center justify-center px-5 sm:px-6 md:px-8 py-8 sm:py-10 w-full card-hover cursor-pointer animate-on-scroll ${
+                index === 2 ? "sm:col-span-2 sm:max-w-[420px] sm:mx-auto md:col-span-1 md:max-w-none" : ""
+              }`}
               style={{
-                minHeight: "280px",
-                borderRadius: "12px",
-                background: "rgba(120, 30, 224, 0.06)",
-                boxShadow: "0px 18px 50px 0px rgba(0, 0, 0, 0.08)",
+                minHeight: "auto",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(250,248,255,0.9) 100%)",
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
+                border: "1px solid rgba(120, 30, 224, 0.08)",
+                boxShadow: "0 10px 40px rgba(120, 30, 224, 0.1), inset 0 1px 0 rgba(255,255,255,0.9)",
                 transitionDelay: `${0.15 * (index + 1)}s`,
               }}
             >
               {/* Icon */}
-              <div className="mb-5 transition-transform duration-300">
+              <div className="mb-4 sm:mb-5 transition-transform duration-300">
                 <BenefitIcon type={benefit.icon} />
               </div>
 
               {/* Title */}
               <h3
-                className="font-plus-jakarta font-bold text-center text-[#000000] mb-3"
+                className="font-plus-jakarta font-bold text-center text-[#000000] mb-2 sm:mb-3 text-lg sm:text-xl md:text-[22px]"
                 style={{
-                  fontSize: "22px",
-                  lineHeight: "28px",
+                  lineHeight: "1.3",
                 }}
               >
                 {benefit.title}
@@ -174,10 +197,9 @@ export function WhyChooseSection() {
 
               {/* Description */}
               <p
-                className="font-plus-jakarta font-normal text-center text-[#696969] max-w-[320px]"
+                className="font-plus-jakarta font-normal text-center text-[#696969] max-w-[320px] text-sm sm:text-base"
                 style={{
-                  fontSize: "16px",
-                  lineHeight: "26px",
+                  lineHeight: "1.6",
                 }}
               >
                 {benefit.description}

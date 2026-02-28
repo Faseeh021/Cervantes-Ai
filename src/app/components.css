@@ -1,0 +1,272 @@
+/* ==================== MESH GRADIENT ==================== */
+
+.mesh-gradient {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.mesh-gradient::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(ellipse 40% 40% at 30% 30%, rgba(216, 180, 254, 0.5) 0%, transparent 70%),
+    radial-gradient(ellipse 35% 35% at 70% 20%, rgba(147, 51, 234, 0.3) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 45% at 50% 60%, rgba(120, 30, 224, 0.2) 0%, transparent 70%);
+  animation: meshFloat 20s ease-in-out infinite;
+}
+
+.mesh-gradient::after {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -30%;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(216, 180, 254, 0.4) 0%, transparent 70%);
+  animation: meshPulse 15s ease-in-out infinite;
+}
+
+/* ==================== CARDS ==================== */
+
+.card-hover {
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(120, 30, 224, 0.12);
+}
+
+.card-premium {
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+
+.card-premium:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(120, 30, 224, 0.15);
+  border-color: rgba(120, 30, 224, 0.2);
+}
+
+/* ==================== BUTTONS ==================== */
+
+.btn-magnetic {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.btn-magnetic:hover {
+  box-shadow: 0 15px 40px rgba(120, 30, 224, 0.4);
+}
+
+/* ==================== NAVIGATION ==================== */
+
+.nav-pill {
+  background: transparent;
+  color: #1a1a1a;
+}
+
+.nav-pill-active {
+  background: #1a1a1a;
+  color: #FFFFFF;
+}
+
+.nav-pill:hover {
+  background: #1a1a1a;
+  color: #FFFFFF;
+}
+
+/* ==================== SOCIAL & LINKS ==================== */
+
+.social-icon {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(126, 95, 255, 0.3);
+}
+
+.footer-link {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #7E5FFF;
+  transform: translateX(3px);
+}
+
+/* ==================== CURSOR GLOW ==================== */
+
+.cursor-glow {
+  position: fixed;
+  pointer-events: none;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(120, 30, 224, 0.08) 0%, rgba(126, 95, 255, 0.04) 40%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+/* ==================== PARALLAX ==================== */
+
+.parallax-container {
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+
+/* ==================== STEP NUMBER ==================== */
+
+.step-number {
+  transition: transform 0.3s ease;
+}
+
+.step-number:hover {
+  transform: scale(1.1);
+  animation: stepPulse 1.5s ease-in-out infinite;
+}
+
+/* ==================== MOBILE MENU GLASS ==================== */
+
+.mobile-menu-glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 243, 253, 0.98) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(120, 30, 224, 0.1);
+  box-shadow: 0 25px 50px rgba(120, 30, 224, 0.15);
+}
+
+/* ==================== MOBILE OPTIMIZATIONS ==================== */
+
+@media (max-width: 768px) {
+  .mesh-gradient::before,
+  .mesh-gradient::after { animation-duration: 30s; }
+
+  .floating-orb { animation-duration: 20s; filter: blur(30px); }
+
+  .floating-orb-1-mobile { width: 100px; height: 100px; }
+  .floating-orb-2-mobile { width: 80px; height: 80px; }
+  .floating-orb-3-mobile { width: 90px; height: 90px; }
+
+  .animate-on-scroll { filter: blur(3px); transition-duration: 0.5s; }
+  .animate-on-scroll.visible { filter: none; }
+
+  .cursor-glow { display: none; }
+
+  .card-hover:hover, .card-premium:hover { transform: translateY(-4px); }
+
+  .orbit-spin, .orbit-spin-reverse { animation-duration: 40s; }
+
+  .arc-dot { animation-duration: 4s; }
+}
+
+@media (min-width: 640px) {
+  .floating-orb-1-mobile { width: 200px; height: 200px; }
+  .floating-orb-2-mobile { width: 150px; height: 150px; }
+  .floating-orb-3-mobile { width: 180px; height: 180px; }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .btn-magnetic { transform: none !important; }
+  .card-hover:hover, .card-premium:hover { transform: none; }
+  .card-hover:active, .card-premium:active { transform: scale(0.98); }
+  .btn-magnetic:active { transform: scale(0.95) !important; }
+}
+
+/* ==================== MOBILE GLASS CARDS ==================== */
+
+.mobile-glass-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 768px) {
+  .mobile-glass-card {
+    border-radius: 16px !important;
+    box-shadow: 0 8px 32px rgba(120, 30, 224, 0.1),
+                inset 0 1px 0 rgba(255,255,255,0.8) !important;
+  }
+
+  /* Remove hover effects on mobile - only keep tap feedback */
+  .card-hover:hover,
+  .card-premium:hover,
+  .mobile-glass-card:hover {
+    transform: none !important;
+    box-shadow: 0 8px 32px rgba(120, 30, 224, 0.1),
+                inset 0 1px 0 rgba(255,255,255,0.8) !important;
+  }
+
+  .mobile-glass-card:active {
+    transform: scale(0.98);
+    transition: transform 0.15s ease;
+  }
+}
+
+/* ==================== DASHBOARD ANIMATIONS ==================== */
+
+.dashboard-float {
+  animation: dashboardFloat 6s ease-in-out infinite;
+}
+
+@keyframes dashboardFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.dashboard-glow {
+  position: relative;
+}
+
+.dashboard-glow::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(120,30,224,0.2) 0%, rgba(147,51,234,0.1) 50%, rgba(120,30,224,0.2) 100%);
+  z-index: -1;
+  animation: dashboardGlowPulse 3s ease-in-out infinite;
+}
+
+@keyframes dashboardGlowPulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.01); }
+}
+
+/* ==================== MOBILE PREMIUM GRADIENTS ==================== */
+
+@media (max-width: 768px) {
+  .premium-gradient-bg {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(250, 248, 255, 0.9) 50%,
+      rgba(255, 255, 255, 0.95) 100%
+    );
+  }
+
+  .premium-glass-overlay {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(248, 245, 255, 0.6) 100%
+    );
+  }
+}
