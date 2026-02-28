@@ -8,7 +8,7 @@ export function HeroSection() {
   const { ref: magneticRef, position, handleMouseLeave } = useMagneticEffect(0.25);
 
   return (
-    <section className="relative w-full md:min-h-screen overflow-hidden">
+    <section className="relative w-full md:min-h-screen overflow-visible">
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center pt-[120px] md:pt-[150px] lg:pt-[180px] px-4">
         {/* Badge - Stagger 1 */}

@@ -43,13 +43,13 @@ export function DashboardShowcase() {
         }}
       />
 
-      {/* Bottom purple glow effect */}
+      {/* Bottom glow - very subtle, fades to white */}
       <div
-        className="absolute left-[10%] right-[10%] -bottom-[30px] sm:-bottom-[50px] lg:-bottom-[80px] h-[80px] sm:h-[120px] lg:h-[180px] pointer-events-none"
+        className="absolute -left-[30%] -right-[30%] bottom-[-20%] h-[40%] pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 100% 100% at 50% 0%, rgba(180, 130, 255, 0.35) 0%, rgba(170, 120, 250, 0.2) 30%, rgba(160, 100, 240, 0.1) 55%, rgba(150, 90, 230, 0.03) 80%, transparent 100%)",
-          filter: "blur(25px)",
+            "radial-gradient(ellipse 100% 100% at 50% 0%, rgba(180, 140, 255, 0.15) 0%, rgba(170, 130, 250, 0.08) 30%, rgba(160, 120, 245, 0.03) 60%, transparent 100%)",
+          filter: "blur(60px)",
         }}
       />
 
@@ -66,10 +66,10 @@ export function DashboardShowcase() {
 
         {/* White fade overlay at bottom */}
         <div
-          className="absolute bottom-0 left-0 right-0 h-[30px] sm:h-[50px] lg:h-[70px] xl:h-[80px] pointer-events-none"
+          className="absolute bottom-0 left-0 right-0 h-[80px] sm:h-[120px] lg:h-[180px] xl:h-[220px] pointer-events-none"
           style={{
             background:
-              "linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.9) 100%)",
+              "linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.4) 40%, rgba(255, 255, 255, 0.75) 70%, rgba(255, 255, 255, 0.95) 100%)",
           }}
         />
       </div>
