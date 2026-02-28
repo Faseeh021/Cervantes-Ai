@@ -15,19 +15,41 @@ export function DashboardShowcase() {
     >
       {/* Left purple glow effect - visible on all screens */}
       <div
-        className="absolute -left-[30px] sm:-left-[40px] lg:-left-[60px] xl:-left-[100px] top-0 bottom-0 w-[80px] sm:w-[100px] lg:w-[150px] xl:w-[250px] pointer-events-none"
+        className="absolute -left-[50px] sm:-left-[80px] lg:-left-[120px] xl:-left-[180px] -top-[20%] -bottom-[20%] w-[150px] sm:w-[200px] lg:w-[300px] xl:w-[400px] pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 120% 70% at 0% 50%, rgba(180, 130, 255, 0.5) 0%, rgba(170, 120, 250, 0.35) 20%, rgba(160, 100, 240, 0.2) 40%, rgba(150, 90, 230, 0.1) 60%, rgba(140, 80, 220, 0.05) 80%, transparent 100%)",
+            "radial-gradient(ellipse 100% 100% at 50% 50%, rgba(180, 130, 255, 0.4) 0%, rgba(170, 120, 250, 0.25) 25%, rgba(160, 100, 240, 0.12) 50%, rgba(150, 90, 230, 0.05) 75%, transparent 100%)",
+          filter: "blur(20px)",
         }}
       />
 
       {/* Right purple glow effect - visible on all screens */}
       <div
-        className="absolute -right-[30px] sm:-right-[40px] lg:-right-[60px] xl:-right-[100px] top-0 bottom-0 w-[80px] sm:w-[100px] lg:w-[150px] xl:w-[250px] pointer-events-none"
+        className="absolute -right-[50px] sm:-right-[80px] lg:-right-[120px] xl:-right-[180px] -top-[20%] -bottom-[20%] w-[150px] sm:w-[200px] lg:w-[300px] xl:w-[400px] pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 120% 70% at 100% 50%, rgba(180, 130, 255, 0.5) 0%, rgba(170, 120, 250, 0.35) 20%, rgba(160, 100, 240, 0.2) 40%, rgba(150, 90, 230, 0.1) 60%, rgba(140, 80, 220, 0.05) 80%, transparent 100%)",
+            "radial-gradient(ellipse 100% 100% at 50% 50%, rgba(180, 130, 255, 0.4) 0%, rgba(170, 120, 250, 0.25) 25%, rgba(160, 100, 240, 0.12) 50%, rgba(150, 90, 230, 0.05) 75%, transparent 100%)",
+          filter: "blur(20px)",
+        }}
+      />
+
+      {/* Top purple glow effect */}
+      <div
+        className="absolute left-[10%] right-[10%] -top-[30px] sm:-top-[50px] lg:-top-[80px] h-[80px] sm:h-[120px] lg:h-[180px] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 100% 100% at 50% 100%, rgba(180, 130, 255, 0.35) 0%, rgba(170, 120, 250, 0.2) 30%, rgba(160, 100, 240, 0.1) 55%, rgba(150, 90, 230, 0.03) 80%, transparent 100%)",
+          filter: "blur(25px)",
+        }}
+      />
+
+      {/* Bottom purple glow effect */}
+      <div
+        className="absolute left-[10%] right-[10%] -bottom-[30px] sm:-bottom-[50px] lg:-bottom-[80px] h-[80px] sm:h-[120px] lg:h-[180px] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 100% 100% at 50% 0%, rgba(180, 130, 255, 0.35) 0%, rgba(170, 120, 250, 0.2) 30%, rgba(160, 100, 240, 0.1) 55%, rgba(150, 90, 230, 0.03) 80%, transparent 100%)",
+          filter: "blur(25px)",
         }}
       />
 
