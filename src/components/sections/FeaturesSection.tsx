@@ -210,7 +210,7 @@ export function FeaturesSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full pt-12 sm:pt-16 lg:pt-24 pb-12 sm:pb-16 lg:pb-24 px-4 sm:px-6 md:px-8 lg:px-16">
+    <section ref={sectionRef} className="relative w-full pt-6 sm:pt-10 md:pt-16 lg:pt-24 pb-12 sm:pb-16 lg:pb-24 px-4 sm:px-6 md:px-8 lg:px-16">
       {/* Mobile glass gradient overlay */}
       <div
         className="absolute inset-0 md:hidden"
