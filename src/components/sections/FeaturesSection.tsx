@@ -42,7 +42,7 @@ const features = [
 ];
 
 function FeatureIcon({ type }: { type: string }) {
-  const iconSize = "w-[54px] h-[54px]";
+  const iconSize = "w-10 h-10 lg:w-[54px] lg:h-[54px]";
 
   switch (type) {
     case "content":
@@ -228,10 +228,10 @@ export function FeaturesSection() {
 
         {/* Subheading */}
         <p
-          className="font-plus-jakarta font-normal text-center text-[#696969] mb-16 lg:mb-20 animate-on-scroll"
+          className="font-plus-jakarta font-normal text-center text-[#696969] mb-12 lg:mb-20 animate-on-scroll"
           style={{
-            fontSize: "clamp(18px, 2vw, 22px)",
-            lineHeight: "35px",
+            fontSize: "clamp(16px, 2vw, 22px)",
+            lineHeight: "1.6",
             transitionDelay: "0.1s",
           }}
         >

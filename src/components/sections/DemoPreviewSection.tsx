@@ -34,8 +34,8 @@ export function DemoPreviewSection() {
         <h2
           className="font-plus-jakarta font-bold text-center text-[#0E0E0E] mb-4 animate-on-scroll"
           style={{
-            fontSize: "clamp(36px, 5vw, 64px)",
-            lineHeight: "72px",
+            fontSize: "clamp(32px, 5vw, 64px)",
+            lineHeight: "1.15",
             letterSpacing: "0px",
           }}
         >
@@ -46,10 +46,9 @@ export function DemoPreviewSection() {
 
         {/* Subheading */}
         <p
-          className="font-plus-jakarta font-normal text-center mb-12 lg:mb-16 animate-on-scroll"
+          className="font-plus-jakarta font-normal text-center mb-10 lg:mb-16 animate-on-scroll text-lg lg:text-[22px]"
           style={{
-            fontSize: "22px",
-            lineHeight: "35px",
+            lineHeight: "1.6",
             color: "#696969",
             transitionDelay: "0.1s",
           }}

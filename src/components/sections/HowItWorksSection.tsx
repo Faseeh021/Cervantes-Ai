@@ -84,20 +84,16 @@ export function HowItWorksSection() {
       <div className="relative z-10 flex flex-col items-center py-16 lg:py-20 px-4">
         {/* How It Works Badge */}
         <div
-          className="flex items-center justify-center mb-6 animate-on-scroll"
+          className="flex items-center justify-center mb-6 animate-on-scroll px-6 py-3 lg:px-8 lg:py-3.5 rounded-full"
           style={{
-            width: "179px",
-            height: "47px",
-            borderRadius: "1115px",
             background: "#781EE0",
-            border: "1.12px solid #EEEEEE",
+            border: "1px solid #EEEEEE",
           }}
         >
           <span
-            className="font-inter font-medium text-white text-center"
+            className="font-inter font-medium text-white text-center text-base lg:text-lg"
             style={{
-              fontSize: "17.86px",
-              lineHeight: "17.86px",
+              lineHeight: "1",
             }}
           >
             How It Works
@@ -108,8 +104,8 @@ export function HowItWorksSection() {
         <h2
           className="font-plus-jakarta font-bold text-center text-[#0E0E0E] mb-4 animate-on-scroll"
           style={{
-            fontSize: "clamp(36px, 5vw, 64px)",
-            lineHeight: "61.4px",
+            fontSize: "clamp(28px, 5vw, 64px)",
+            lineHeight: "1.1",
             transitionDelay: "0.1s",
           }}
         >
@@ -118,10 +114,9 @@ export function HowItWorksSection() {
 
         {/* Subheading */}
         <p
-          className="font-plus-jakarta font-normal text-center text-[#696969] mb-16 lg:mb-20 animate-on-scroll"
+          className="font-plus-jakarta font-normal text-center text-[#696969] mb-12 lg:mb-20 animate-on-scroll text-lg lg:text-[22px]"
           style={{
-            fontSize: "22px",
-            lineHeight: "35px",
+            lineHeight: "1.6",
             transitionDelay: "0.15s",
           }}
         >
@@ -134,20 +129,16 @@ export function HowItWorksSection() {
           <div className="relative flex items-center justify-center mb-12 px-4 lg:px-8">
             {/* Circle 01 */}
             <div
-              className="relative z-10 flex items-center justify-center animate-on-scroll flex-shrink-0"
+              className="relative z-10 flex items-center justify-center animate-on-scroll flex-shrink-0 w-14 h-14 md:w-16 md:h-16 lg:w-[78px] lg:h-[78px] rounded-full"
               style={{
-                width: "78px",
-                height: "78px",
-                borderRadius: "50%",
                 background: "#781EE0",
                 transitionDelay: "0.2s",
               }}
             >
               <span
-                className="font-montserrat font-bold text-white text-center"
+                className="font-montserrat font-bold text-white text-center text-lg md:text-xl lg:text-2xl"
                 style={{
-                  fontSize: "24px",
-                  lineHeight: "24px",
+                  lineHeight: "1",
                   letterSpacing: "-0.03em",
                 }}
               >
@@ -157,7 +148,7 @@ export function HowItWorksSection() {
 
             {/* Dashed Line 1 */}
             <div
-              className="draw-line flex-1 max-w-[350px] mx-2"
+              className="draw-line flex-1 max-w-[150px] md:max-w-[250px] lg:max-w-[350px] mx-1 md:mx-2"
               style={{
                 height: "1px",
                 background: "repeating-linear-gradient(90deg, #0E0E0E 0px, #0E0E0E 8px, transparent 8px, transparent 16px)",
@@ -167,20 +158,16 @@ export function HowItWorksSection() {
 
             {/* Circle 02 */}
             <div
-              className="relative z-10 flex items-center justify-center animate-on-scroll flex-shrink-0"
+              className="relative z-10 flex items-center justify-center animate-on-scroll flex-shrink-0 w-14 h-14 md:w-16 md:h-16 lg:w-[78px] lg:h-[78px] rounded-full"
               style={{
-                width: "78px",
-                height: "78px",
-                borderRadius: "50%",
                 background: "#781EE0",
                 transitionDelay: "0.35s",
               }}
             >
               <span
-                className="font-montserrat font-bold text-white text-center"
+                className="font-montserrat font-bold text-white text-center text-lg md:text-xl lg:text-2xl"
                 style={{
-                  fontSize: "24px",
-                  lineHeight: "24px",
+                  lineHeight: "1",
                   letterSpacing: "-0.03em",
                 }}
               >
@@ -190,7 +177,7 @@ export function HowItWorksSection() {
 
             {/* Dashed Line 2 */}
             <div
-              className="draw-line flex-1 max-w-[350px] mx-2"
+              className="draw-line flex-1 max-w-[150px] md:max-w-[250px] lg:max-w-[350px] mx-1 md:mx-2"
               style={{
                 height: "1px",
                 background: "repeating-linear-gradient(90deg, #0E0E0E 0px, #0E0E0E 8px, transparent 8px, transparent 16px)",
@@ -200,20 +187,16 @@ export function HowItWorksSection() {
 
             {/* Circle 03 */}
             <div
-              className="relative z-10 flex items-center justify-center animate-on-scroll flex-shrink-0"
+              className="relative z-10 flex items-center justify-center animate-on-scroll flex-shrink-0 w-14 h-14 md:w-16 md:h-16 lg:w-[78px] lg:h-[78px] rounded-full"
               style={{
-                width: "78px",
-                height: "78px",
-                borderRadius: "50%",
                 background: "#781EE0",
                 transitionDelay: "0.5s",
               }}
             >
               <span
-                className="font-montserrat font-bold text-white text-center"
+                className="font-montserrat font-bold text-white text-center text-lg md:text-xl lg:text-2xl"
                 style={{
-                  fontSize: "24px",
-                  lineHeight: "24px",
+                  lineHeight: "1",
                   letterSpacing: "-0.03em",
                 }}
               >

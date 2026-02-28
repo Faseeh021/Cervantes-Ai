@@ -13,24 +13,22 @@ export function HeroSection() {
       <div className="relative z-10 flex flex-col items-center pt-[120px] md:pt-[150px] lg:pt-[180px] px-4">
         {/* Badge - Stagger 1 */}
         <div
-          className="flex flex-col items-center justify-center mb-8 lg:mb-11"
+          className="flex flex-col items-center justify-center mb-8 lg:mb-11 w-full max-w-[320px] py-2 px-4 lg:py-2.5"
           style={{
-            width: "320px",
-            height: "59px",
             borderRadius: "999px",
             background: "rgba(120, 30, 224, 0.1)",
             border: "1px solid #EEEEEE",
           }}
         >
           <span
-            className="font-inter font-medium text-[#0E0E0E] text-center"
-            style={{ fontSize: "16px", lineHeight: "22px" }}
+            className="font-inter font-medium text-[#0E0E0E] text-center text-sm lg:text-base"
+            style={{ lineHeight: "1.4" }}
           >
             Multi-Model AI Platform
           </span>
           <span
-            className="font-inter font-bold text-[#0E0E0E] text-center"
-            style={{ fontSize: "18px", lineHeight: "22px" }}
+            className="font-inter font-bold text-[#0E0E0E] text-center text-base lg:text-lg"
+            style={{ lineHeight: "1.4" }}
           >
             Create. Automate. Scale.
           </span>

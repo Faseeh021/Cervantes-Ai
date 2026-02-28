@@ -45,8 +45,8 @@ export function Footer() {
       className="relative w-full"
       style={{ background: "#F9F9F9", paddingTop: "60px", paddingBottom: "40px" }}
     >
-      <div className="relative z-10 max-w-[1440px] mx-auto px-[77px]">
-        <div className="flex justify-between">
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 xl:px-[77px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
           {/* Logo & Description */}
           <div className="animate-on-scroll">
             <Image
@@ -54,14 +54,11 @@ export function Footer() {
               alt="Cervantes AI"
               width={218}
               height={43}
-              className="object-contain mb-10"
-              style={{ width: "218px", height: "43px" }}
+              className="object-contain mb-6 lg:mb-10 w-[160px] lg:w-[218px] h-auto"
             />
             <p
-              className="font-plus-jakarta mb-10"
+              className="font-plus-jakarta mb-10 max-w-[368px] w-full text-base lg:text-lg"
               style={{
-                width: "368px",
-                fontSize: "18px",
                 fontWeight: 400,
                 lineHeight: "160%",
                 color: "#808080",
@@ -72,14 +69,14 @@ export function Footer() {
               from one powerful AI workspace.
             </p>
             {/* Social Icons */}
-            <div className="flex items-center gap-[16px]" style={{ width: "175.68px", height: "47.07px" }}>
+            <div className="flex items-center gap-3 lg:gap-4">
               {/* Facebook */}
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-icon flex items-center justify-center rounded-full"
-                style={{ width: "47.3px", height: "47.07px", background: "#7E5FFF" }}
+                className="social-icon flex items-center justify-center rounded-full w-10 h-10 lg:w-12 lg:h-12"
+                style={{ background: "#7E5FFF" }}
               >
                 <svg width="12" height="23" viewBox="0 0 12 23" fill="none">
                   <path
@@ -93,8 +90,8 @@ export function Footer() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-icon flex items-center justify-center rounded-full"
-                style={{ width: "47.3px", height: "47.07px", background: "#E3DCFF" }}
+                className="social-icon flex items-center justify-center rounded-full w-10 h-10 lg:w-12 lg:h-12"
+                style={{ background: "#E3DCFF" }}
               >
                 <svg width="22" height="21" viewBox="0 0 22 21" fill="none">
                   <rect x="1" y="0.5" width="20" height="20" rx="5" stroke="#7E5FFF" strokeWidth="1.5" fill="none" />
@@ -107,8 +104,8 @@ export function Footer() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-icon flex items-center justify-center rounded-full"
-                style={{ width: "47.3px", height: "47.07px", background: "#E3DCFF" }}
+                className="social-icon flex items-center justify-center rounded-full w-10 h-10 lg:w-12 lg:h-12"
+                style={{ background: "#E3DCFF" }}
               >
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <path d="M4 7V17H1V7H4ZM2.5 5.5C1.67 5.5 1 4.83 1 4C1 3.17 1.67 2.5 2.5 2.5C3.33 2.5 4 3.17 4 4C4 4.83 3.33 5.5 2.5 5.5ZM17 17H14V12C14 10.5 13.5 10 12.5 10C11.5 10 10.5 10.67 10.5 12V17H7.5V7H10.5V8.5C11 7.5 12.17 6.75 13.5 6.75C15.5 6.75 17 8 17 11V17Z" fill="#7E5FFF" />
@@ -120,8 +117,8 @@ export function Footer() {
           {/* Menu */}
           <div className="animate-on-scroll" style={{ transitionDelay: "0.1s" }}>
             <h3
-              className="font-plus-jakarta"
-              style={{ fontSize: "32px", fontWeight: 700, lineHeight: "100%", color: "#000000", marginBottom: "38px" }}
+              className="font-plus-jakarta text-2xl lg:text-[32px] font-bold mb-6 lg:mb-[38px]"
+              style={{ lineHeight: "100%", color: "#000000" }}
             >
               Menu
             </h3>
@@ -143,8 +140,8 @@ export function Footer() {
           {/* Platform */}
           <div className="animate-on-scroll" style={{ transitionDelay: "0.15s" }}>
             <h3
-              className="font-plus-jakarta"
-              style={{ fontSize: "32px", fontWeight: 700, lineHeight: "100%", color: "#000000", marginBottom: "38px" }}
+              className="font-plus-jakarta text-2xl lg:text-[32px] font-bold mb-6 lg:mb-[38px]"
+              style={{ lineHeight: "100%", color: "#000000" }}
             >
               Platform
             </h3>
@@ -166,8 +163,8 @@ export function Footer() {
           {/* Contact */}
           <div className="animate-on-scroll" style={{ transitionDelay: "0.2s" }}>
             <h3
-              className="font-plus-jakarta"
-              style={{ fontSize: "32px", fontWeight: 700, lineHeight: "100%", color: "#000000", marginBottom: "38px" }}
+              className="font-plus-jakarta text-2xl lg:text-[32px] font-bold mb-6 lg:mb-[38px]"
+              style={{ lineHeight: "100%", color: "#000000" }}
             >
               Contact
             </h3>

@@ -75,7 +75,7 @@ export function BackgroundGrid() {
 
       {/* Grid line pattern - centered */}
       <div
-        className={`absolute w-full max-w-[1200px] h-[800px] top-0 left-1/2 -translate-x-1/2 transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+        className={`absolute w-full max-w-[1600px] 2xl:max-w-[2000px] h-[800px] top-0 left-1/2 -translate-x-1/2 transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
         style={{
           background: `
             repeating-linear-gradient(
@@ -103,7 +103,7 @@ export function BackgroundGrid() {
       {/* Decorative orbital arcs with parallax effect */}
       <svg
         className={`absolute top-0 left-0 w-full h-full reveal-arcs ${isLoaded ? "stagger-5" : ""}`}
-        viewBox="0 0 1440 800"
+        viewBox="0 0 1920 800"
         fill="none"
         preserveAspectRatio="xMidYMid slice"
         style={{ minHeight: "100vh" }}
@@ -149,8 +149,8 @@ export function BackgroundGrid() {
             transition: "transform 0.15s ease-out",
           }}
         >
-          <circle cx="1540" cy="400" r="450" opacity="0.6" />
-          <circle cx="1540" cy="400" r="700" opacity="0.4" />
+          <circle cx="2020" cy="400" r="450" opacity="0.6" />
+          <circle cx="2020" cy="400" r="700" opacity="0.4" />
         </g>
         {/* Dots ON right arc - with parallax */}
         <g
@@ -160,12 +160,12 @@ export function BackgroundGrid() {
             transition: "transform 0.1s ease-out",
           }}
         >
-          <circle cx="1205" cy="100" r="3" />
-          <circle cx="1090" cy="400" r="3" />
-          <circle cx="1257" cy="700" r="3" />
-          <circle cx="908" cy="100" r="3" />
-          <circle cx="847" cy="500" r="3" />
-          <circle cx="953" cy="700" r="3" />
+          <circle cx="1685" cy="100" r="3" />
+          <circle cx="1570" cy="400" r="3" />
+          <circle cx="1737" cy="700" r="3" />
+          <circle cx="1388" cy="100" r="3" />
+          <circle cx="1327" cy="500" r="3" />
+          <circle cx="1433" cy="700" r="3" />
         </g>
       </svg>
     </div>

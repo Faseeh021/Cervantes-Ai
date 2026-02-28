@@ -47,7 +47,6 @@ export function TrustedCreatorsSection() {
       ref={sectionRef}
       className="relative w-full overflow-hidden"
       style={{
-        minHeight: "539px",
         background: "linear-gradient(90.28deg, #781EE0 0.26%, #7E5FFF 99.8%)",
       }}
     >
@@ -60,8 +59,8 @@ export function TrustedCreatorsSection() {
           <h2
             className="font-plus-jakarta font-bold text-white mb-4 animate-on-scroll"
             style={{
-              fontSize: "clamp(40px, 5vw, 64px)",
-              lineHeight: "70px",
+              fontSize: "clamp(32px, 5vw, 64px)",
+              lineHeight: "1.1",
               letterSpacing: "-0.03em",
             }}
           >
@@ -72,10 +71,9 @@ export function TrustedCreatorsSection() {
 
           {/* Subheading */}
           <p
-            className="font-plus-jakarta font-semibold text-white mb-8 animate-on-scroll"
+            className="font-plus-jakarta font-semibold text-white mb-8 animate-on-scroll text-lg lg:text-2xl"
             style={{
-              fontSize: "24px",
-              lineHeight: "100%",
+              lineHeight: "1.4",
               transitionDelay: "0.1s",
             }}
           >
@@ -88,20 +86,17 @@ export function TrustedCreatorsSection() {
             style={{ transitionDelay: "0.15s" }}
           >
             <p
-              className="font-plus-jakarta font-bold text-white"
+              className="font-plus-jakarta font-bold text-white text-lg lg:text-2xl mb-3 lg:mb-4"
               style={{
-                fontSize: "24px",
-                lineHeight: "20px",
-                marginBottom: "16px",
+                lineHeight: "1.2",
               }}
             >
               Start Creating Content in Minutes
             </p>
             <p
-              className="font-plus-jakarta font-normal text-white"
+              className="font-plus-jakarta font-normal text-white text-base lg:text-2xl"
               style={{
-                fontSize: "24px",
-                lineHeight: "32px",
+                lineHeight: "1.4",
               }}
             >
               Turn one idea into high-impact content across every platform
@@ -111,35 +106,29 @@ export function TrustedCreatorsSection() {
 
           {/* Start Free Button */}
           <button
-            className="flex items-center mb-4 animate-on-scroll"
+            className="group relative flex items-center justify-between mb-4 animate-on-scroll h-[44px] lg:h-[50px] pl-6 lg:pl-8 pr-1 rounded-full bg-white cursor-pointer transition-all duration-300 ease-out hover:scale-105 hover:shadow-xl"
             style={{
-              width: "190px",
-              height: "50px",
-              borderRadius: "999px",
-              background: "#FFFFFF",
               transitionDelay: "0.2s",
+              minWidth: "190px",
             }}
           >
             <span
-              className="font-plus-jakarta font-semibold flex-1 text-center"
+              className="font-plus-jakarta font-semibold text-lg lg:text-2xl transition-transform duration-300 group-hover:-translate-x-1"
               style={{
-                fontSize: "24px",
-                lineHeight: "16px",
                 color: "#4A4A4A",
-                paddingLeft: "8px",
               }}
             >
               Start Free
             </span>
             {/* Arrow Circle */}
             <span
-              className="flex items-center justify-center mr-[5px]"
+              className="flex items-center justify-center ml-4 transition-transform duration-300 group-hover:translate-x-1"
               style={{
-                width: "40px",
-                height: "40px",
-                borderRadius: "40px",
+                width: "36px",
+                height: "36px",
+                minWidth: "36px",
+                borderRadius: "50%",
                 background: "#781EE0",
-                border: "1px solid #781EE0",
               }}
             >
               <svg
@@ -148,6 +137,7 @@ export function TrustedCreatorsSection() {
                 viewBox="0 0 14 14"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                className="transition-transform duration-300 group-hover:translate-x-0.5"
               >
                 <path
                   d="M1.5 7H12.5M12.5 7L7 1.5M12.5 7L7 12.5"
@@ -180,12 +170,12 @@ export function TrustedCreatorsSection() {
         >
           {/* Left - Premium orbital circles with rotation + parallax */}
           <svg
-            className="absolute pointer-events-none"
+            className="absolute pointer-events-none hidden lg:block"
             style={{
-              width: "460px",
-              height: "460px",
+              width: "clamp(280px, 30vw, 460px)",
+              height: "clamp(280px, 30vw, 460px)",
               top: "-20px",
-              left: "-100px",
+              left: "-60px",
               zIndex: 0,
               transform: `translateY(${scrollOffset * 0.5}px)`,
               transition: "transform 0.1s ease-out",
@@ -228,10 +218,10 @@ export function TrustedCreatorsSection() {
 
           {/* Right top - smaller orbital circles with rotation + parallax */}
           <svg
-            className="absolute pointer-events-none"
+            className="absolute pointer-events-none hidden xl:block"
             style={{
-              width: "180px",
-              height: "180px",
+              width: "clamp(120px, 12vw, 180px)",
+              height: "clamp(120px, 12vw, 180px)",
               top: "-50px",
               right: "80px",
               zIndex: 0,
@@ -274,7 +264,7 @@ export function TrustedCreatorsSection() {
             alt="Cervantes AI Dashboard"
             width={799}
             height={417}
-            className="relative w-full max-w-[799px] h-auto rounded-lg shadow-2xl"
+            className="relative w-full max-w-[500px] lg:max-w-[799px] h-auto rounded-lg shadow-2xl"
             style={{ zIndex: 1 }}
             priority
           />

@@ -14,18 +14,18 @@ export function DashboardShowcase() {
           "linear-gradient(180deg, rgba(120, 30, 224, 0.05) 0%, rgba(255, 255, 255, 0.06) 100%)",
       }}
     >
-      {/* Left purple glow effect */}
+      {/* Left purple glow effect - hidden on small screens to prevent overflow */}
       <div
-        className="absolute -left-[60px] lg:-left-[100px] top-0 bottom-0 w-[150px] lg:w-[250px] pointer-events-none"
+        className="absolute left-0 lg:-left-[60px] xl:-left-[100px] top-0 bottom-0 w-[80px] lg:w-[150px] xl:w-[250px] pointer-events-none hidden sm:block"
         style={{
           background:
             "radial-gradient(ellipse 100% 60% at 0% 50%, rgba(180, 130, 255, 0.4) 0%, rgba(160, 100, 240, 0.2) 40%, transparent 70%)",
         }}
       />
 
-      {/* Right purple glow effect */}
+      {/* Right purple glow effect - hidden on small screens to prevent overflow */}
       <div
-        className="absolute -right-[60px] lg:-right-[100px] top-0 bottom-0 w-[150px] lg:w-[250px] pointer-events-none"
+        className="absolute right-0 lg:-right-[60px] xl:-right-[100px] top-0 bottom-0 w-[80px] lg:w-[150px] xl:w-[250px] pointer-events-none hidden sm:block"
         style={{
           background:
             "radial-gradient(ellipse 100% 60% at 100% 50%, rgba(180, 130, 255, 0.4) 0%, rgba(160, 100, 240, 0.2) 40%, transparent 70%)",

@@ -24,7 +24,7 @@ const benefits = [
 ];
 
 function BenefitIcon({ type }: { type: string }) {
-  const iconSize = "w-[54px] h-[54px]";
+  const iconSize = "w-10 h-10 lg:w-[54px] lg:h-[54px]";
 
   switch (type) {
     case "shield":
@@ -120,8 +120,8 @@ export function WhyChooseSection() {
         <h2
           className="font-plus-jakarta font-bold text-center text-[#0E0E0E] mb-4 animate-on-scroll"
           style={{
-            fontSize: "clamp(36px, 5vw, 64px)",
-            lineHeight: "74px",
+            fontSize: "clamp(32px, 5vw, 64px)",
+            lineHeight: "1.15",
             letterSpacing: "-0.03em",
           }}
         >
@@ -133,10 +133,9 @@ export function WhyChooseSection() {
 
         {/* Subheading */}
         <p
-          className="font-plus-jakarta font-normal text-center text-[#696969] mb-16 lg:mb-20 animate-on-scroll"
+          className="font-plus-jakarta font-normal text-center text-[#696969] mb-12 lg:mb-20 animate-on-scroll text-lg lg:text-[22px]"
           style={{
-            fontSize: "22px",
-            lineHeight: "35px",
+            lineHeight: "1.6",
             transitionDelay: "0.1s",
           }}
         >
