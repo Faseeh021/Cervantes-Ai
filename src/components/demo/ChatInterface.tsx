@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 interface ChatInterfaceProps {
   userMessage: React.ReactNode;
@@ -31,34 +32,13 @@ export function ChatInterface({
         className="flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4"
         style={{ borderBottom: "1px solid rgba(120, 30, 224, 0.08)" }}
       >
-        <div className="w-8 h-8 rounded-full bg-[#781EE0] flex items-center justify-center">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M12 2L2 7L12 12L22 7L12 2Z"
-              stroke="white"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M2 17L12 22L22 17"
-              stroke="white"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M2 12L12 17L22 12"
-              stroke="white"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </div>
-        <span className="font-plus-jakarta font-semibold text-[#0E0E0E]">
-          Cervantes AI
-        </span>
+        <Image
+          src="/images/logo.png"
+          alt="Cervantes AI"
+          width={120}
+          height={24}
+          className="h-6 w-auto object-contain"
+        />
         <div className="ml-auto flex gap-1.5">
           <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
           <span className="text-xs text-gray-500">Online</span>
@@ -93,15 +73,8 @@ export function ChatInterface({
         {/* AI Response */}
         {showAiResponse && (
           <div className="flex gap-3">
-            <div className="w-8 h-8 rounded-full bg-[#781EE0] flex-shrink-0 flex items-center justify-center">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M12 2L2 7L12 12L22 7L12 2Z"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
+            <div className="w-8 h-8 rounded-full bg-[#781EE0] flex-shrink-0 flex items-center justify-center overflow-hidden">
+              <span className="text-white font-bold text-sm">C</span>
             </div>
             {responseType === "image" ? (
               <div className="max-w-[85%] sm:max-w-[75%]">{aiResponse}</div>

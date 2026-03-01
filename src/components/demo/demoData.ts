@@ -41,21 +41,9 @@ Results in just 14 days. Cruelty-free. Dermatologist tested.`,
     typingDelay: 600,
   },
   {
-    type: "text",
-    prompt: "Generate 5 blog post ideas for a travel company",
-    response: `5 Engaging Blog Posts:
-
-1. "Hidden Gems: 10 Underrated Destinations for 2025"
-2. "Solo Travel Guide: Safety Tips & Best Locations"
-3. "Budget Luxury: How to Travel First-Class for Less"
-4. "Digital Nomad Hotspots: Work & Wander"
-5. "Sustainable Tourism: Leave No Trace Adventures"`,
-    typingDelay: 500,
-  },
-  {
     type: "image",
     prompt: "Create an Instagram post image for a summer fitness challenge",
-    imageSrc: "/images/dashboard3.jpeg",
+    imageSrc: "/images/fitness-post.jpg",
     imageAlt: "AI Generated Instagram Post - Summer Fitness Challenge",
     typingDelay: 800,
   },
