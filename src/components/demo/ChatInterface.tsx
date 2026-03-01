@@ -6,6 +6,7 @@ interface ChatInterfaceProps {
   userMessage: React.ReactNode;
   aiResponse: React.ReactNode;
   showAiResponse: boolean;
+  responseType?: "text" | "image";
   className?: string;
 }
 
@@ -13,6 +14,7 @@ export function ChatInterface({
   userMessage,
   aiResponse,
   showAiResponse,
+  responseType = "text",
   className = "",
 }: ChatInterfaceProps) {
   return (
@@ -101,14 +103,18 @@ export function ChatInterface({
                 />
               </svg>
             </div>
-            <div
-              className="max-w-[85%] sm:max-w-[75%] px-4 py-3 rounded-2xl rounded-tl-sm"
-              style={{ background: "#F3F4F6" }}
-            >
-              <p className="font-plus-jakarta text-sm sm:text-base text-[#0E0E0E] leading-relaxed">
-                {aiResponse}
-              </p>
-            </div>
+            {responseType === "image" ? (
+              <div className="max-w-[85%] sm:max-w-[75%]">{aiResponse}</div>
+            ) : (
+              <div
+                className="max-w-[85%] sm:max-w-[75%] px-4 py-3 rounded-2xl rounded-tl-sm"
+                style={{ background: "#F3F4F6" }}
+              >
+                <p className="font-plus-jakarta text-sm sm:text-base text-[#0E0E0E] leading-relaxed">
+                  {aiResponse}
+                </p>
+              </div>
+            )}
           </div>
         )}
       </div>

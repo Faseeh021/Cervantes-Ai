@@ -1,11 +1,15 @@
 export interface DemoSequence {
+  type: "text" | "image";
   prompt: string;
-  response: string;
+  response?: string;
+  imageSrc?: string;
+  imageAlt?: string;
   typingDelay: number;
 }
 
 export const demoSequences: DemoSequence[] = [
   {
+    type: "text",
     prompt: "Create a social media campaign for my new fitness app",
     response: `Here's your campaign strategy:
 
@@ -23,6 +27,7 @@ export const demoSequences: DemoSequence[] = [
     typingDelay: 800,
   },
   {
+    type: "text",
     prompt: "Write a product description for organic skincare",
     response: `Introducing Pure Glow Serum
 
@@ -36,6 +41,7 @@ Results in just 14 days. Cruelty-free. Dermatologist tested.`,
     typingDelay: 600,
   },
   {
+    type: "text",
     prompt: "Generate 5 blog post ideas for a travel company",
     response: `5 Engaging Blog Posts:
 
@@ -45,5 +51,12 @@ Results in just 14 days. Cruelty-free. Dermatologist tested.`,
 4. "Digital Nomad Hotspots: Work & Wander"
 5. "Sustainable Tourism: Leave No Trace Adventures"`,
     typingDelay: 500,
+  },
+  {
+    type: "image",
+    prompt: "Create an Instagram post image for a summer fitness challenge",
+    imageSrc: "/images/dashboard3.jpeg",
+    imageAlt: "AI Generated Instagram Post - Summer Fitness Challenge",
+    typingDelay: 800,
   },
 ];
