@@ -43,7 +43,7 @@ Results in just 14 days. Cruelty-free. Dermatologist tested.`,
   {
     type: "image",
     prompt: "Create an Instagram post for a new coffee brand launch",
-    imageSrc: "/images/coffe.png",
+    imageSrc: "/images/coffee.png",
     imageAlt: "AI Generated Instagram Post - Coffee Brand Launch",
     typingDelay: 800,
   },

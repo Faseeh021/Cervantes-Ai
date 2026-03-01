@@ -83,7 +83,7 @@ export function DemoPreviewSection() {
             transitionDelay: "0.1s",
           }}
         >
-          Type an idea. Watch it turn into content.
+          Type an idea. Watch it come to life.
         </p>
 
         {/* Interactive Typewriter Demo */}
