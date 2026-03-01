@@ -42,9 +42,9 @@ Results in just 14 days. Cruelty-free. Dermatologist tested.`,
   },
   {
     type: "image",
-    prompt: "Create an Instagram post image for a summer fitness challenge",
-    imageSrc: "/images/fitness-post.jpg",
-    imageAlt: "AI Generated Instagram Post - Summer Fitness Challenge",
+    prompt: "Create an Instagram post for a new coffee brand launch",
+    imageSrc: "/images/coffe.png",
+    imageAlt: "AI Generated Instagram Post - Coffee Brand Launch",
     typingDelay: 800,
   },
 ];

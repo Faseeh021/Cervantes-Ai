@@ -63,6 +63,7 @@ export function TypewriterDemo({ className = "" }: TypewriterDemoProps) {
       <ChatInterface
         userMessage={
           <TypewriterText
+            key={`user-${sequenceIndex}`}
             text={currentSequence.prompt}
             speed={60}
             enabled={phase === "user_typing"}
@@ -74,6 +75,7 @@ export function TypewriterDemo({ className = "" }: TypewriterDemoProps) {
         aiResponse={
           isImageSequence ? (
             <ImageReveal
+              key={`image-${sequenceIndex}`}
               src={currentSequence.imageSrc || ""}
               alt={currentSequence.imageAlt || "AI Generated Image"}
               enabled={phase === "image_reveal"}
@@ -82,6 +84,7 @@ export function TypewriterDemo({ className = "" }: TypewriterDemoProps) {
             />
           ) : (
             <TypewriterText
+              key={`text-${sequenceIndex}`}
               text={currentSequence.response || ""}
               speed={20}
               enabled={phase === "ai_typing"}

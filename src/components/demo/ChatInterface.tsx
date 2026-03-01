@@ -39,9 +39,9 @@ export function ChatInterface({
           height={24}
           className="h-6 w-auto object-contain"
         />
-        <div className="ml-auto flex gap-1.5">
+        <div className="ml-auto flex gap-1.5 items-center">
           <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
-          <span className="text-xs text-gray-500">Online</span>
+          <span className="font-plus-jakarta text-xs text-gray-500">Online</span>
         </div>
       </div>
 
@@ -101,7 +101,7 @@ export function ChatInterface({
           className="flex items-center gap-3 px-4 py-2.5 rounded-full"
           style={{ background: "#F3F4F6" }}
         >
-          <span className="text-gray-400 text-sm flex-1">
+          <span className="font-plus-jakarta text-gray-400 text-sm flex-1">
             Type your prompt here...
           </span>
           <div className="w-8 h-8 rounded-full bg-[#781EE0] flex items-center justify-center">

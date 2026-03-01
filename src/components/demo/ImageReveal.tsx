@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 interface ImageRevealProps {
@@ -16,57 +16,61 @@ export function ImageReveal({
   src,
   alt,
   enabled,
-  duration = 2000,
+  duration = 2500,
   onComplete,
   className = "",
 }: ImageRevealProps) {
   const [progress, setProgress] = useState(0);
-  const [isComplete, setIsComplete] = useState(false);
-
-  const handleComplete = useCallback(() => {
-    setIsComplete(true);
-    onComplete?.();
-  }, [onComplete]);
+  const animationRef = useRef<number | null>(null);
+  const startTimeRef = useRef<number | null>(null);
+  const completedRef = useRef(false);
 
   useEffect(() => {
     if (!enabled) {
-      setProgress(0);
-      setIsComplete(false);
       return;
     }
 
-    const startTime = Date.now();
+    // Reset for new animation
+    setProgress(0);
+    completedRef.current = false;
+    startTimeRef.current = Date.now();
+
     const animate = () => {
-      const elapsed = Date.now() - startTime;
+      if (!startTimeRef.current) return;
+
+      const elapsed = Date.now() - startTimeRef.current;
       const newProgress = Math.min(elapsed / duration, 1);
       setProgress(newProgress);
 
       if (newProgress < 1) {
-        requestAnimationFrame(animate);
-      } else {
-        handleComplete();
+        animationRef.current = requestAnimationFrame(animate);
+      } else if (!completedRef.current) {
+        completedRef.current = true;
+        onComplete?.();
       }
     };
 
-    requestAnimationFrame(animate);
-  }, [enabled, duration, handleComplete]);
+    animationRef.current = requestAnimationFrame(animate);
 
-  // Calculate animation values based on progress
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [enabled, duration, onComplete]);
+
   const clipPercent = 100 - progress * 100;
-  const blur = Math.max(0, 20 - progress * 20);
-  const saturation = progress;
+  const blur = Math.max(0, 12 - progress * 12);
+  const saturation = 0.4 + progress * 0.6;
 
   return (
     <div
       className={`relative overflow-hidden rounded-xl ${className}`}
-      style={{
-        opacity: enabled || isComplete ? 1 : 0,
-        transition: "opacity 0.3s ease",
-      }}
+      style={{ minHeight: "220px" }}
     >
-      {/* Shimmer loading effect behind image */}
+      {/* Shimmer loading background */}
       <div
-        className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200"
+        className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 rounded-xl"
         style={{
           backgroundSize: "200% 100%",
           animation: progress < 1 ? "shimmer 1.5s infinite" : "none",
@@ -79,22 +83,21 @@ export function ImageReveal({
         style={{
           clipPath: `inset(${clipPercent}% 0 0 0)`,
           filter: `blur(${blur}px) saturate(${saturation})`,
-          transition: "clip-path 0.05s linear, filter 0.1s linear",
         }}
       >
         <Image
           src={src}
           alt={alt}
-          width={400}
-          height={400}
-          className="w-full h-auto object-cover"
+          width={500}
+          height={500}
+          className="w-full h-auto object-cover rounded-xl"
           priority
         />
       </div>
 
       {/* "Generating..." text overlay */}
-      {progress < 1 && enabled && (
-        <div className="absolute bottom-3 left-3 flex items-center gap-2 bg-black/50 backdrop-blur-sm rounded-full px-3 py-1.5">
+      {progress < 1 && (
+        <div className="absolute bottom-3 left-3 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1.5">
           <div className="flex gap-1">
             <span
               className="w-1.5 h-1.5 bg-white rounded-full animate-bounce"
@@ -109,7 +112,7 @@ export function ImageReveal({
               style={{ animationDelay: "300ms" }}
             />
           </div>
-          <span className="text-white text-xs font-medium">
+          <span className="font-plus-jakarta text-white text-xs font-medium">
             Generating... {Math.round(progress * 100)}%
           </span>
         </div>
