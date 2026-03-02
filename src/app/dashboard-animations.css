@@ -21,36 +21,6 @@
   }
 }
 
-@keyframes mediaPanelFade {
-  0%, 5% {
-    opacity: 0;
-    transform: translateX(20px) scale(0.98);
-    filter: blur(3px);
-  }
-  20% {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-    filter: blur(0);
-  }
-  75% {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-  90%, 100% {
-    opacity: 0;
-    transform: translateX(20px) scale(0.98);
-    filter: blur(3px);
-  }
-}
-
-@keyframes statCardFloat {
-  0%, 100% { transform: translateY(0); opacity: 0.7; }
-  15% { opacity: 1; }
-  50% { transform: translateY(-4px); opacity: 1; }
-  85% { opacity: 1; }
-  95% { opacity: 0.7; }
-}
-
 @keyframes cursorPath {
   0% { left: -3%; top: 55%; opacity: 0; }
   8% { left: 5%; top: 55%; opacity: 1; }
@@ -77,26 +47,6 @@
   animation: chartLineRise 10s cubic-bezier(0.16, 1, 0.3, 1) infinite;
 }
 
-/* Media Library panel overlay */
-.media-panel-overlay {
-  opacity: 0;
-  animation: mediaPanelFade 10s cubic-bezier(0.16, 1, 0.3, 1) infinite;
-  animation-delay: 0.3s;
-}
-
-/* Stat card overlays with stagger */
-.stat-card-overlay {
-  animation: statCardFloat 10s ease-in-out infinite;
-}
-
-.stat-card-1 {
-  animation-delay: 0s;
-}
-
-.stat-card-2 {
-  animation-delay: 0.2s;
-}
-
 /* Animated cursor */
 .dashboard-cursor {
   position: absolute;
@@ -117,8 +67,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .chart-line-rise,
-  .media-panel-overlay,
-  .stat-card-overlay,
   .dashboard-cursor {
     animation: none;
   }
@@ -126,13 +74,6 @@
   .chart-line-rise {
     stroke-dashoffset: 0;
     opacity: 1;
-  }
-
-  .media-panel-overlay,
-  .stat-card-overlay {
-    opacity: 1;
-    transform: none;
-    filter: none;
   }
 
   .dashboard-cursor {
@@ -144,8 +85,6 @@
 
 @media (max-width: 768px) {
   .chart-line-rise,
-  .media-panel-overlay,
-  .stat-card-overlay,
   .dashboard-cursor {
     animation-duration: 12s;
   }
@@ -154,19 +93,10 @@
     width: 16px;
     height: 16px;
   }
-
-  /* Hide some overlays on small screens for cleaner look */
-  .stat-card-overlay {
-    display: none;
-  }
 }
 
 @media (max-width: 480px) {
   .dashboard-cursor {
-    display: none;
-  }
-
-  .media-panel-overlay {
     display: none;
   }
 }

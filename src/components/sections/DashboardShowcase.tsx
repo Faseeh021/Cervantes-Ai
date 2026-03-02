@@ -60,7 +60,7 @@ export function DashboardShowcase() {
 
         {/* Animation Overlays Container */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {/* 1. Chart Line SVG - wavelike pattern starting from 0 line */}
+          {/* Chart Line SVG - wavelike pattern starting from 0 line */}
           <svg
             className="absolute"
             style={{ left: "29%", top: "55%", width: "52%", height: "32%" }}
@@ -68,7 +68,6 @@ export function DashboardShowcase() {
             fill="none"
             preserveAspectRatio="none"
           >
-            {/* Wavelike path - starts at bottom (0), stays in lower half */}
             <path
               d="M5 95 L40 85 L80 70 L120 78 L160 60 L200 68 L240 52 L280 58 L320 45 L360 50 L400 38 L440 42 L480 32"
               stroke="url(#chartGradientNew)"
@@ -87,49 +86,7 @@ export function DashboardShowcase() {
             </defs>
           </svg>
 
-          {/* 2. Media Library Panel Highlight */}
-          <div
-            className="absolute media-panel-overlay hidden sm:block"
-            style={{
-              left: "58%",
-              top: "10%",
-              width: "40%",
-              height: "55%",
-              borderRadius: "8px",
-              background:
-                "linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(120,30,224,0.06) 100%)",
-              border: "1px solid rgba(120, 30, 224, 0.12)",
-              boxShadow: "0 4px 20px rgba(120, 30, 224, 0.08)",
-            }}
-          />
-
-          {/* 3. Stat Card Overlays */}
-          <div
-            className="absolute stat-card-overlay stat-card-1 hidden sm:block"
-            style={{
-              left: "17%",
-              top: "14%",
-              width: "16%",
-              height: "9%",
-              borderRadius: "6px",
-              background: "rgba(120, 30, 224, 0.04)",
-              border: "1px solid rgba(120, 30, 224, 0.08)",
-            }}
-          />
-          <div
-            className="absolute stat-card-overlay stat-card-2 hidden sm:block"
-            style={{
-              left: "34%",
-              top: "14%",
-              width: "16%",
-              height: "9%",
-              borderRadius: "6px",
-              background: "rgba(120, 30, 224, 0.04)",
-              border: "1px solid rgba(120, 30, 224, 0.08)",
-            }}
-          />
-
-          {/* 4. Animated Cursor */}
+          {/* Animated Cursor */}
           <div className="dashboard-cursor hidden md:block">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path
