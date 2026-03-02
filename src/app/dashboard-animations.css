@@ -1,0 +1,172 @@
+/* ==================== DASHBOARD HERO KEYFRAMES ==================== */
+
+@keyframes chartLineRise {
+  0% {
+    stroke-dashoffset: 800;
+    opacity: 0;
+  }
+  5% { opacity: 1; }
+  55% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  80% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  95% { opacity: 0; }
+  100% {
+    stroke-dashoffset: 800;
+    opacity: 0;
+  }
+}
+
+@keyframes mediaPanelFade {
+  0%, 5% {
+    opacity: 0;
+    transform: translateX(20px) scale(0.98);
+    filter: blur(3px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+  }
+  75% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  90%, 100% {
+    opacity: 0;
+    transform: translateX(20px) scale(0.98);
+    filter: blur(3px);
+  }
+}
+
+@keyframes statCardFloat {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  15% { opacity: 1; }
+  50% { transform: translateY(-4px); opacity: 1; }
+  85% { opacity: 1; }
+  95% { opacity: 0.7; }
+}
+
+@keyframes cursorPath {
+  0% { left: -3%; top: 55%; opacity: 0; }
+  8% { left: 5%; top: 55%; opacity: 1; }
+  20% { left: 28%; top: 62%; }
+  35% { left: 38%; top: 58%; }
+  50% { left: 32%; top: 22%; }
+  65% { left: 62%; top: 28%; }
+  80% { left: 72%; top: 38%; }
+  92% { left: 102%; top: 32%; opacity: 1; }
+  100% { left: 102%; top: 32%; opacity: 0; }
+}
+
+@keyframes cursorHoverPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+/* ==================== DASHBOARD HERO ANIMATION CLASSES ==================== */
+
+/* Chart line SVG animation */
+.chart-line-rise {
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+  animation: chartLineRise 10s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+/* Media Library panel overlay */
+.media-panel-overlay {
+  opacity: 0;
+  animation: mediaPanelFade 10s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  animation-delay: 0.3s;
+}
+
+/* Stat card overlays with stagger */
+.stat-card-overlay {
+  animation: statCardFloat 10s ease-in-out infinite;
+}
+
+.stat-card-1 {
+  animation-delay: 0s;
+}
+
+.stat-card-2 {
+  animation-delay: 0.2s;
+}
+
+/* Animated cursor */
+.dashboard-cursor {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  animation: cursorPath 10s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  z-index: 50;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+  pointer-events: none;
+}
+
+.dashboard-cursor svg {
+  animation: cursorHoverPulse 1.5s ease-in-out infinite;
+}
+
+/* ==================== REDUCED MOTION ==================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .chart-line-rise,
+  .media-panel-overlay,
+  .stat-card-overlay,
+  .dashboard-cursor {
+    animation: none;
+  }
+
+  .chart-line-rise {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  .media-panel-overlay,
+  .stat-card-overlay {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .dashboard-cursor {
+    display: none;
+  }
+}
+
+/* ==================== MOBILE OPTIMIZATION ==================== */
+
+@media (max-width: 768px) {
+  .chart-line-rise,
+  .media-panel-overlay,
+  .stat-card-overlay,
+  .dashboard-cursor {
+    animation-duration: 12s;
+  }
+
+  .dashboard-cursor {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Hide some overlays on small screens for cleaner look */
+  .stat-card-overlay {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-cursor {
+    display: none;
+  }
+
+  .media-panel-overlay {
+    display: none;
+  }
+}

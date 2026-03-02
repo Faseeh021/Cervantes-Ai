@@ -38,19 +38,21 @@ export function HeroSection() {
 
         {/* Main Heading - Stagger 2 */}
         <h1
-          className="font-plus-jakarta font-bold text-center text-[#0E0E0E] mb-6 lg:mb-8 max-w-[900px]"
+          className="font-plus-jakarta font-bold text-center text-[#0E0E0E] mb-6 lg:mb-8 max-w-[900px] px-2"
           style={{
-            fontSize: "clamp(32px, 5vw, 64px)",
-            lineHeight: "1.1",
+            fontSize: "clamp(28px, 5vw, 64px)",
+            lineHeight: "1.15",
           }}
         >
-          The{" "}
-          <span className="bg-gradient-to-r from-[#781EE0] via-[#9D4EDD] to-[#781EE0] bg-clip-text text-transparent">
-            AI Platform
-          </span>{" "}
-          That Turns
-          <br />
-          Ideas Into Content at Scale
+          <span className="block sm:inline">
+            The{" "}
+            <span className="bg-gradient-to-r from-[#781EE0] via-[#9D4EDD] to-[#781EE0] bg-clip-text text-transparent">
+              AI Platform
+            </span>{" "}
+            That Turns
+          </span>
+          <br className="hidden sm:block" />
+          <span className="block sm:inline"> Ideas Into Content at Scale</span>
         </h1>
 
         {/* Subheading - Stagger 3 */}

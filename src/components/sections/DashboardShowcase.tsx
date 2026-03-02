@@ -58,34 +58,89 @@ export function DashboardShowcase() {
           className="w-full h-auto"
         />
 
-        {/* Chart Line Draw Animation Overlay */}
-        <svg
-          className="absolute pointer-events-none"
-          style={{
-            top: "25%",
-            left: "55%",
-            width: "35%",
-            height: "40%",
-          }}
-          viewBox="0 0 200 100"
-          fill="none"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M10 80 Q40 70, 60 50 T100 35 T140 25 T180 15"
-            stroke="url(#chartGradient)"
-            strokeWidth="3"
-            strokeLinecap="round"
+        {/* Animation Overlays Container */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {/* 1. Chart Line SVG - wavelike pattern starting from 0 line */}
+          <svg
+            className="absolute"
+            style={{ left: "29%", top: "55%", width: "52%", height: "32%" }}
+            viewBox="0 0 500 100"
             fill="none"
-            className="chart-line-draw"
+            preserveAspectRatio="none"
+          >
+            {/* Wavelike path - starts at bottom (0), stays in lower half */}
+            <path
+              d="M5 95 L40 85 L80 70 L120 78 L160 60 L200 68 L240 52 L280 58 L320 45 L360 50 L400 38 L440 42 L480 32"
+              stroke="url(#chartGradientNew)"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              fill="none"
+              className="chart-line-rise"
+            />
+            <defs>
+              <linearGradient id="chartGradientNew" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="rgba(120, 30, 224, 0.5)" />
+                <stop offset="50%" stopColor="rgba(157, 78, 221, 0.7)" />
+                <stop offset="100%" stopColor="rgba(120, 30, 224, 0.8)" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          {/* 2. Media Library Panel Highlight */}
+          <div
+            className="absolute media-panel-overlay hidden sm:block"
+            style={{
+              left: "58%",
+              top: "10%",
+              width: "40%",
+              height: "55%",
+              borderRadius: "8px",
+              background:
+                "linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(120,30,224,0.06) 100%)",
+              border: "1px solid rgba(120, 30, 224, 0.12)",
+              boxShadow: "0 4px 20px rgba(120, 30, 224, 0.08)",
+            }}
           />
-          <defs>
-            <linearGradient id="chartGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="rgba(120, 30, 224, 0.6)" />
-              <stop offset="100%" stopColor="rgba(157, 78, 221, 0.8)" />
-            </linearGradient>
-          </defs>
-        </svg>
+
+          {/* 3. Stat Card Overlays */}
+          <div
+            className="absolute stat-card-overlay stat-card-1 hidden sm:block"
+            style={{
+              left: "17%",
+              top: "14%",
+              width: "16%",
+              height: "9%",
+              borderRadius: "6px",
+              background: "rgba(120, 30, 224, 0.04)",
+              border: "1px solid rgba(120, 30, 224, 0.08)",
+            }}
+          />
+          <div
+            className="absolute stat-card-overlay stat-card-2 hidden sm:block"
+            style={{
+              left: "34%",
+              top: "14%",
+              width: "16%",
+              height: "9%",
+              borderRadius: "6px",
+              background: "rgba(120, 30, 224, 0.04)",
+              border: "1px solid rgba(120, 30, 224, 0.08)",
+            }}
+          />
+
+          {/* 4. Animated Cursor */}
+          <div className="dashboard-cursor hidden md:block">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M5.5 3.21V20.8C5.5 21.3 6.09 21.58 6.47 21.26L10.79 17.57L14.5 20.8C14.88 21.12 15.47 20.86 15.5 20.37L15.5 12.5L21.79 6.21C22.18 5.82 21.92 5.16 21.37 5.09L6.11 3.01C5.57 2.94 5.18 3.44 5.5 3.21Z"
+                fill="white"
+                stroke="#781EE0"
+                strokeWidth="1.5"
+              />
+            </svg>
+          </div>
+        </div>
 
         {/* White fade at bottom */}
         <div

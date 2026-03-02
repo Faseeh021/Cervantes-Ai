@@ -87,7 +87,7 @@ export function DemoPreviewSection() {
         </p>
 
         {/* Interactive Typewriter Demo */}
-        <TypewriterDemo className="w-full max-w-[900px] animate-on-scroll" />
+        <TypewriterDemo className="w-full max-w-[1100px] animate-on-scroll" />
       </div>
     </section>
   );
