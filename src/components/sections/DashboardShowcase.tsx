@@ -5,10 +5,10 @@ import Image from "next/image";
 
 export function DashboardShowcase() {
   return (
-    <div className="w-[98%] sm:w-[95%] lg:w-[92%] xl:w-[90%] max-w-[1500px] mt-8 sm:mt-10 lg:mt-14 relative mx-auto overflow-visible">
-      {/* Left purple glow */}
+    <div className="w-[98%] sm:w-[95%] lg:w-[92%] xl:w-[90%] max-w-[1500px] mt-8 sm:mt-10 lg:mt-14 relative mx-auto overflow-visible dashboard-float">
+      {/* Left purple glow - with pulse animation */}
       <div
-        className="absolute -left-[50px] sm:-left-[80px] lg:-left-[120px] -top-[10%] -bottom-[10%] w-[150px] sm:w-[200px] lg:w-[300px] pointer-events-none"
+        className="absolute -left-[50px] sm:-left-[80px] lg:-left-[120px] -top-[10%] -bottom-[10%] w-[150px] sm:w-[200px] lg:w-[300px] pointer-events-none dashboard-glow-pulse"
         style={{
           background:
             "radial-gradient(ellipse 100% 100% at 50% 50%, rgba(180, 130, 255, 0.4) 0%, rgba(170, 120, 250, 0.25) 25%, rgba(160, 100, 240, 0.12) 50%, rgba(150, 90, 230, 0.05) 75%, transparent 100%)",
@@ -16,13 +16,14 @@ export function DashboardShowcase() {
         }}
       />
 
-      {/* Right purple glow */}
+      {/* Right purple glow - with pulse animation */}
       <div
-        className="absolute -right-[50px] sm:-right-[80px] lg:-right-[120px] -top-[10%] -bottom-[10%] w-[150px] sm:w-[200px] lg:w-[300px] pointer-events-none"
+        className="absolute -right-[50px] sm:-right-[80px] lg:-right-[120px] -top-[10%] -bottom-[10%] w-[150px] sm:w-[200px] lg:w-[300px] pointer-events-none dashboard-glow-pulse"
         style={{
           background:
             "radial-gradient(ellipse 100% 100% at 50% 50%, rgba(180, 130, 255, 0.4) 0%, rgba(170, 120, 250, 0.25) 25%, rgba(160, 100, 240, 0.12) 50%, rgba(150, 90, 230, 0.05) 75%, transparent 100%)",
           filter: "blur(20px)",
+          animationDelay: "1.5s",
         }}
       />
 
@@ -56,6 +57,35 @@ export function DashboardShowcase() {
           priority
           className="w-full h-auto"
         />
+
+        {/* Chart Line Draw Animation Overlay */}
+        <svg
+          className="absolute pointer-events-none"
+          style={{
+            top: "25%",
+            left: "55%",
+            width: "35%",
+            height: "40%",
+          }}
+          viewBox="0 0 200 100"
+          fill="none"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M10 80 Q40 70, 60 50 T100 35 T140 25 T180 15"
+            stroke="url(#chartGradient)"
+            strokeWidth="3"
+            strokeLinecap="round"
+            fill="none"
+            className="chart-line-draw"
+          />
+          <defs>
+            <linearGradient id="chartGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="rgba(120, 30, 224, 0.6)" />
+              <stop offset="100%" stopColor="rgba(157, 78, 221, 0.8)" />
+            </linearGradient>
+          </defs>
+        </svg>
 
         {/* White fade at bottom */}
         <div

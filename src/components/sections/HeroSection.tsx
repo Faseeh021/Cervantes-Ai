@@ -44,9 +44,13 @@ export function HeroSection() {
             lineHeight: "1.1",
           }}
         >
-          The AI Platform
+          The{" "}
+          <span className="bg-gradient-to-r from-[#781EE0] via-[#9D4EDD] to-[#781EE0] bg-clip-text text-transparent">
+            AI Platform
+          </span>{" "}
+          That Turns
           <br />
-          That Turns Ideas Into Content at Scale
+          Ideas Into Content at Scale
         </h1>
 
         {/* Subheading - Stagger 3 */}

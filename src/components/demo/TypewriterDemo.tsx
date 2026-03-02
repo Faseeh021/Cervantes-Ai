@@ -7,7 +7,7 @@ import { TypewriterText } from "./TypewriterText";
 import { ImageReveal } from "./ImageReveal";
 import { demoSequences } from "./demoData";
 
-type AnimationPhase = "idle" | "user_typing" | "ai_typing" | "image_reveal" | "pause";
+type AnimationPhase = "idle" | "typing_input" | "show_button" | "clicking_generate" | "ai_typing" | "image_reveal" | "pause";
 
 interface TypewriterDemoProps {
   className?: string;
@@ -17,17 +17,31 @@ export function TypewriterDemo({ className = "" }: TypewriterDemoProps) {
   const { ref, isInView } = useScrollTrigger<HTMLDivElement>({ threshold: 0.3 });
   const [phase, setPhase] = useState<AnimationPhase>("idle");
   const [sequenceIndex, setSequenceIndex] = useState(0);
+  const [typedText, setTypedText] = useState("");
   const currentSequence = demoSequences[sequenceIndex];
 
   // Start animation when in view
   useEffect(() => {
     if (isInView && phase === "idle") {
-      setPhase("user_typing");
+      setTypedText("");
+      setPhase("typing_input");
     }
   }, [isInView, phase]);
 
-  // Handle user typing complete
-  const handleUserComplete = useCallback(() => {
+  // Handle input typing complete - show generate button
+  const handleInputComplete = useCallback(() => {
+    setTypedText(currentSequence.prompt);
+    setTimeout(() => {
+      setPhase("show_button");
+      // Auto-click after showing button
+      setTimeout(() => {
+        setPhase("clicking_generate");
+      }, 600);
+    }, 300);
+  }, [currentSequence.prompt]);
+
+  // Handle Generate button click - move to AI response
+  const handleGenerateClick = useCallback(() => {
     setTimeout(() => {
       if (currentSequence.type === "image") {
         setPhase("image_reveal");
@@ -37,13 +51,13 @@ export function TypewriterDemo({ className = "" }: TypewriterDemoProps) {
     }, currentSequence.typingDelay);
   }, [currentSequence.typingDelay, currentSequence.type]);
 
-  // Handle AI typing complete (also used for image reveal)
+  // Handle AI typing complete
   const handleAiComplete = useCallback(() => {
     setPhase("pause");
-    // Pause, then cycle to next sequence
     setTimeout(() => {
       setSequenceIndex((prev) => (prev + 1) % demoSequences.length);
-      setPhase("user_typing");
+      setTypedText("");
+      setPhase("typing_input");
     }, 4000);
   }, []);
 
@@ -53,25 +67,32 @@ export function TypewriterDemo({ className = "" }: TypewriterDemoProps) {
   }, [handleAiComplete]);
 
   const isImageSequence = currentSequence.type === "image";
-  const showResponse =
-    phase === "ai_typing" ||
-    phase === "image_reveal" ||
-    phase === "pause";
+  const showUserMessage = phase === "clicking_generate" || phase === "ai_typing" || phase === "image_reveal" || phase === "pause";
+  const showAiResponse = phase === "ai_typing" || phase === "image_reveal" || phase === "pause";
+  const showGenerateButton = phase === "typing_input" || phase === "show_button" || phase === "clicking_generate";
+  const isGenerating = phase === "clicking_generate";
 
   return (
     <div ref={ref} className={className}>
       <ChatInterface
-        userMessage={
-          <TypewriterText
-            key={`user-${sequenceIndex}`}
-            text={currentSequence.prompt}
-            speed={60}
-            enabled={phase === "user_typing"}
-            showCursor={phase === "user_typing"}
-            cursorStyle="block"
-            onComplete={handleUserComplete}
-          />
+        inputText={
+          phase === "typing_input" ? (
+            <TypewriterText
+              key={`input-${sequenceIndex}`}
+              text={currentSequence.prompt}
+              speed={50}
+              enabled={phase === "typing_input"}
+              showCursor={phase === "typing_input"}
+              cursorStyle="line"
+              onComplete={handleInputComplete}
+            />
+          ) : showUserMessage ? (
+            <span className="text-gray-400">Type your prompt here...</span>
+          ) : (
+            typedText || <span className="text-gray-400">Type your prompt here...</span>
+          )
         }
+        userMessage={currentSequence.prompt}
         aiResponse={
           isImageSequence ? (
             <ImageReveal
@@ -94,8 +115,12 @@ export function TypewriterDemo({ className = "" }: TypewriterDemoProps) {
             />
           )
         }
+        showUserMessage={showUserMessage}
+        showAiResponse={showAiResponse}
         responseType={isImageSequence ? "image" : "text"}
-        showAiResponse={showResponse}
+        showGenerateButton={showGenerateButton}
+        isGenerating={isGenerating}
+        onGenerateClick={handleGenerateClick}
       />
     </div>
   );

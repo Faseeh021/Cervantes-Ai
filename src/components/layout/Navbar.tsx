@@ -5,15 +5,22 @@ import Link from "next/link";
 import Image from "next/image";
 
 const navItems = [
-  { label: "Home", href: "/", active: true },
-  { label: "About Us", href: "/about" },
+  { label: "Platform", href: "/", active: true },
   { label: "Features", href: "/features" },
   { label: "Pricing", href: "/pricing" },
-  { label: "Product", href: "/product" },
+  { label: "About", href: "/about" },
 ];
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Handle scroll for sticky navbar
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Close menu on resize to desktop
   useEffect(() => {
@@ -35,7 +42,14 @@ export function Navbar() {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="absolute left-1/2 -translate-x-1/2 flex items-center justify-between w-[95%] max-w-[1303px] h-[61px] top-[36px] px-4 lg:px-0 reveal-nav z-50">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/95 backdrop-blur-md shadow-sm py-3"
+          : "bg-transparent py-6 md:py-9"
+      }`}
+    >
+      <div className="flex items-center justify-between h-[61px] w-[95%] max-w-[1303px] mx-auto px-4 lg:px-0">
       {/* Logo */}
       <div className="flex-shrink-0">
         <Image
@@ -145,20 +159,21 @@ export function Navbar() {
           </div>
         </button>
       </div>
+      </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Menu Dropdown - Glass Effect */}
       <div
-        className={`absolute top-full left-0 right-0 mt-3 mx-4 p-5 rounded-2xl md:hidden z-50 transition-all duration-300 ease-out ${
+        className={`absolute top-full left-0 right-0 mt-2 mx-4 p-5 rounded-3xl md:hidden z-50 transition-all duration-300 ease-out ${
           mobileMenuOpen
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 -translate-y-4 pointer-events-none"
         }`}
         style={{
-          background: "linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 243, 253, 0.98) 50%, rgba(240, 235, 255, 0.95) 100%)",
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
-          border: "1px solid rgba(120, 30, 224, 0.1)",
-          boxShadow: "0 25px 50px rgba(120, 30, 224, 0.15), 0 0 0 1px rgba(255,255,255,0.5) inset",
+          background: "linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(248, 243, 253, 0.8) 50%, rgba(245, 240, 255, 0.75) 100%)",
+          backdropFilter: "blur(24px) saturate(180%)",
+          WebkitBackdropFilter: "blur(24px) saturate(180%)",
+          border: "1px solid rgba(255, 255, 255, 0.6)",
+          boxShadow: "0 25px 50px rgba(120, 30, 224, 0.12), 0 10px 30px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.9)",
         }}
       >
         <nav className="flex flex-col gap-1.5">
@@ -176,20 +191,56 @@ export function Navbar() {
               {item.label}
             </Link>
           ))}
-          <div className="flex flex-col gap-2 mt-3 pt-3 border-t border-gray-200">
+          <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-gray-200">
+            {/* Login Button - same as desktop */}
             <Link
               href="/login"
-              className="flex items-center justify-center py-3.5 px-4 rounded-xl font-plus-jakarta font-semibold text-base bg-[#F8F3FD] text-[#0E0E0E] active:scale-[0.98] transition-transform"
+              className="flex items-center justify-center h-[48px] px-5 pr-2 gap-3 rounded-full active:scale-[0.98] transition-transform"
+              style={{
+                background: "#F8F3FD",
+                border: "1px solid #EEEEEE",
+              }}
               onClick={() => setMobileMenuOpen(false)}
             >
-              Log In
+              <span className="font-plus-jakarta font-semibold text-base text-[#0E0E0E]">
+                Log In
+              </span>
+              <span
+                className="flex items-center justify-center w-8 h-8 rounded-full"
+                style={{ background: "#9D4EDD" }}
+              >
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path
+                    d="M2.5 6H9.5M9.5 6L6.5 3M9.5 6L6.5 9"
+                    stroke="#FFFFFF"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
             </Link>
+            {/* Start Free Button - same as desktop */}
             <Link
               href="/start-free"
-              className="flex items-center justify-center py-3.5 px-4 rounded-xl font-plus-jakarta font-semibold text-base text-white bg-[#781EE0] active:scale-[0.98] transition-transform"
+              className="flex items-center justify-center h-[48px] px-5 pr-2 gap-3 rounded-full active:scale-[0.98] transition-transform"
+              style={{ background: "#781EE0" }}
               onClick={() => setMobileMenuOpen(false)}
             >
-              Start Free
+              <span className="font-plus-jakarta font-semibold text-base text-white">
+                Start Free
+              </span>
+              <span className="flex items-center justify-center w-8 h-8 bg-white rounded-full">
+                <svg width="12" height="11" viewBox="0 0 12 11" fill="none">
+                  <path
+                    d="M1 5.5H11M11 5.5L6.5 1M11 5.5L6.5 10"
+                    stroke="#000000"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
             </Link>
           </div>
         </nav>
