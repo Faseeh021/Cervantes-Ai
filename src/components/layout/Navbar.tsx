@@ -51,15 +51,18 @@ export function Navbar() {
     >
       <div className="flex items-center justify-between h-[61px] w-[95%] max-w-[1303px] mx-auto px-4 lg:px-0">
       {/* Logo */}
-      <div className="flex-shrink-0">
+      <div className="flex-shrink-0 flex items-center gap-2">
         <Image
-          src="/images/logo.png"
+          src="/images/CervantesAI logo1.svg"
           alt="Cervantes AI"
-          width={218}
-          height={43}
+          width={40}
+          height={40}
           priority
-          className="w-[140px] lg:w-[180px] xl:w-[218px] h-auto object-contain"
+          className="w-[32px] lg:w-[38px] xl:w-[42px] h-auto object-contain"
         />
+        <span className="font-plus-jakarta font-bold text-[#0E0E0E] text-lg lg:text-xl xl:text-2xl tracking-tight">
+          Cervantes AI
+        </span>
       </div>
 
       {/* Navigation Pills - Glass Container (Desktop only) */}

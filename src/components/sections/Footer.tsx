@@ -49,13 +49,18 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-6 lg:gap-6">
           {/* Logo & Description */}
           <div className="animate-on-scroll sm:col-span-2 lg:col-span-1">
-            <Image
-              src="/images/logo.png"
-              alt="Cervantes AI"
-              width={218}
-              height={43}
-              className="object-contain mb-4 sm:mb-6 lg:mb-10 w-[140px] sm:w-[160px] lg:w-[218px] h-auto"
-            />
+            <div className="flex items-center gap-2 mb-4 sm:mb-6 lg:mb-10">
+              <Image
+                src="/images/CervantesAI logo1.svg"
+                alt="Cervantes AI"
+                width={45}
+                height={45}
+                className="object-contain w-[36px] sm:w-[40px] lg:w-[45px] h-auto"
+              />
+              <span className="font-plus-jakarta font-bold text-[#0E0E0E] text-xl sm:text-2xl lg:text-[28px] tracking-tight">
+                Cervantes AI
+              </span>
+            </div>
             <p
               className="font-plus-jakarta mb-6 sm:mb-8 lg:mb-10 max-w-[368px] w-full text-sm sm:text-base lg:text-lg"
               style={{
