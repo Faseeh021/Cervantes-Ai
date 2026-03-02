@@ -24,6 +24,16 @@ export const metadata: Metadata = {
   title: "Cervantes AI - Next-Gen AI Tool for High-Performing Creators",
   description:
     "Generate text, images, and videos in seconds. Turn a single idea into multi-platform content — powered by advanced AI models and built-in automation.",
+  keywords: [
+    "AI content creator",
+    "AI platform",
+    "AI video generator",
+    "AI image generator",
+    "content automation",
+    "AI text generator",
+    "multi-model AI",
+    "content at scale",
+  ],
 };
 
 export default function RootLayout({

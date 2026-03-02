@@ -44,15 +44,13 @@ export function HeroSection() {
             lineHeight: "1.15",
           }}
         >
-          <span className="block sm:inline">
-            The{" "}
-            <span className="bg-gradient-to-r from-[#781EE0] via-[#9D4EDD] to-[#781EE0] bg-clip-text text-transparent">
-              AI Platform
-            </span>{" "}
-            That Turns
-          </span>
-          <br className="hidden sm:block" />
-          <span className="block sm:inline"> Ideas Into Content at Scale</span>
+          The{" "}
+          <span className="bg-gradient-to-r from-[#781EE0] via-[#9D4EDD] to-[#781EE0] bg-clip-text text-transparent">
+            AI Platform
+          </span>{" "}
+          That Turns
+          <br />
+          Ideas Into Content at Scale
         </h1>
 
         {/* Subheading - Stagger 3 */}

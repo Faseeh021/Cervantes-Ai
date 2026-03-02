@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const navItems = [
-  { label: "Platform", href: "/", active: true },
+  { label: "Platform", href: "/" },
   { label: "Features", href: "/features" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
@@ -72,10 +72,9 @@ export function Navbar() {
             <Link
               key={item.label}
               href={item.href}
-              className="flex items-center justify-center h-[40px] lg:h-[48px] px-5 lg:px-6 rounded-full font-plus-jakarta font-normal text-[15px] lg:text-[16px] transition-all duration-200"
+              className="flex items-center justify-center h-[40px] lg:h-[48px] px-5 lg:px-6 rounded-full font-plus-jakarta font-normal text-[15px] lg:text-[16px] transition-all duration-200 hover:bg-gray-100"
               style={{
-                background: item.active ? "#1a1a1a" : "transparent",
-                color: item.active ? "#FFFFFF" : "#1a1a1a",
+                color: "#1a1a1a",
               }}
             >
               {item.label}
@@ -184,11 +183,7 @@ export function Navbar() {
             <Link
               key={item.label}
               href={item.href}
-              className={`flex items-center justify-center py-3.5 px-4 rounded-xl font-plus-jakarta font-medium text-base transition-all duration-200 active:scale-[0.98] ${
-                item.active
-                  ? "bg-[#1a1a1a] text-white"
-                  : "text-[#1a1a1a] hover:bg-gray-100"
-              }`}
+              className="flex items-center justify-center py-3.5 px-4 rounded-xl font-plus-jakarta font-medium text-base transition-all duration-200 active:scale-[0.98] text-[#1a1a1a] hover:bg-gray-100"
               onClick={() => setMobileMenuOpen(false)}
             >
               {item.label}
