@@ -307,10 +307,10 @@
 .chart-line-draw {
   stroke-dasharray: 300;
   stroke-dashoffset: 300;
-  animation: drawLine 6s ease-in-out infinite;
+  animation: chartLineDraw 6s ease-in-out infinite;
 }
 
-@keyframes drawLine {
+@keyframes chartLineDraw {
   0% { stroke-dashoffset: 300; opacity: 0; }
   10% { opacity: 1; }
   50% { stroke-dashoffset: 0; opacity: 1; }
