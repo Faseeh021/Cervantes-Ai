@@ -55,11 +55,15 @@ export function Footer() {
                 alt="Cervantes AI"
                 width={45}
                 height={45}
-                className="object-contain w-[36px] sm:w-[40px] lg:w-[45px] h-auto"
+                className="object-contain w-[32px] sm:w-[38px] lg:w-[45px] h-auto"
               />
-              <span className="font-plus-jakarta font-bold text-[#0E0E0E] text-xl sm:text-2xl lg:text-[28px] tracking-tight">
-                Cervantes AI
-              </span>
+              <Image
+                src="/images/cervantes-text.svg"
+                alt="Cervantes AI"
+                width={180}
+                height={35}
+                className="object-contain w-[130px] sm:w-[150px] lg:w-[180px] h-auto"
+              />
             </div>
             <p
               className="font-plus-jakarta mb-6 sm:mb-8 lg:mb-10 max-w-[368px] w-full text-sm sm:text-base lg:text-lg"

@@ -1,0 +1,31 @@
+<svg width="420" height="80" viewBox="0 0 420 80" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Cervantes -->
+  <text x="10" y="55"
+        font-family="Poppins, Arial, sans-serif"
+        font-size="36"
+        font-weight="500"
+        fill="#111">
+    Cervantes
+  </text>
+
+  <!-- AI (tight but with slight breathing space) -->
+  <g transform="translate(178,10)">
+
+    <!-- A (barless, lighter to match font weight) -->
+    <path d="M6 48 L22 12 L38 48"
+          stroke="#111"
+          stroke-width="4.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          fill="none"/>
+
+    <!-- I -->
+    <line x1="60" y1="12" x2="60" y2="48"
+          stroke="#111"
+          stroke-width="4.8"
+          stroke-linecap="round"/>
+
+  </g>
+
+</svg>
