@@ -38,11 +38,8 @@ export function HeroSection() {
 
         {/* Main Heading - Stagger 2 */}
         <h1
-          className="font-plus-jakarta font-bold text-center text-[#0E0E0E] mb-6 lg:mb-8 max-w-[900px] px-2"
-          style={{
-            fontSize: "clamp(28px, 5vw, 64px)",
-            lineHeight: "1.15",
-          }}
+          className="font-plus-jakarta font-bold text-center text-[#0E0E0E] mb-6 lg:mb-8 max-w-[900px] px-2 text-[22px] sm:text-[32px] md:text-[48px] lg:text-[64px]"
+          style={{ lineHeight: "1.15" }}
         >
           The{" "}
           <span className="bg-gradient-to-r from-[#781EE0] via-[#9D4EDD] to-[#781EE0] bg-clip-text text-transparent">
