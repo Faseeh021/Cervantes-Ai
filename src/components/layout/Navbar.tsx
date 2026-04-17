@@ -1,19 +1,32 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { PlatformDropdown } from "./PlatformDropdown";
+import { FeaturesDropdown } from "./FeaturesDropdown";
 
 const navItems = [
-  { label: "Platform", href: "/" },
-  { label: "Features", href: "/features" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "About", href: "/about" },
+  { label: "Platform", href: "/", hasDropdown: true },
+  { label: "Features", href: "/features", hasDropdown: true },
+  { label: "Pricing", href: "/pricing", hasDropdown: false },
+  { label: "About", href: "/about", hasDropdown: false },
 ];
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleDropdownEnter = (label: string) => {
+    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+    setActiveDropdown(label);
+  };
+
+  const handleDropdownLeave = () => {
+    dropdownTimeoutRef.current = setTimeout(() => setActiveDropdown(null), 150);
+  };
 
   // Handle scroll for sticky navbar
   useEffect(() => {
@@ -44,7 +57,7 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+        isScrolled || activeDropdown
           ? "bg-white/95 backdrop-blur-md shadow-sm py-3"
           : "bg-transparent py-6 md:py-9"
       }`}
@@ -68,18 +81,34 @@ export function Navbar() {
       {/* Navigation Pills - Glass Container (Desktop only) */}
       <nav className="hidden md:flex items-center justify-center h-[56px] lg:h-[64px] px-2 lg:px-3 rounded-full glass">
         <div className="flex items-center gap-0">
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="flex items-center justify-center h-[40px] lg:h-[48px] px-5 lg:px-6 rounded-full font-plus-jakarta font-normal text-[15px] lg:text-[16px] transition-all duration-200 hover:bg-gray-100"
-              style={{
-                color: "#1a1a1a",
-              }}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) =>
+            item.hasDropdown ? (
+              <div
+                key={item.label}
+                className="relative"
+                onMouseEnter={() => handleDropdownEnter(item.label)}
+                onMouseLeave={handleDropdownLeave}
+              >
+                <button
+                  className="flex items-center justify-center h-[40px] lg:h-[48px] px-5 lg:px-6 rounded-full font-plus-jakarta font-normal text-[15px] lg:text-[16px] transition-all duration-200 hover:bg-gray-100 cursor-pointer"
+                  style={{ color: "#1a1a1a" }}
+                >
+                  <span className={activeDropdown === item.label ? "border-b-2 border-[#781EE0] pb-0.5" : ""}>
+                    {item.label}
+                  </span>
+                </button>
+              </div>
+            ) : (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="flex items-center justify-center h-[40px] lg:h-[48px] px-5 lg:px-6 rounded-full font-plus-jakarta font-normal text-[15px] lg:text-[16px] transition-all duration-200 hover:bg-gray-100"
+                style={{ color: "#1a1a1a" }}
+              >
+                {item.label}
+              </Link>
+            )
+          )}
         </div>
       </nav>
 
@@ -252,6 +281,16 @@ export function Navbar() {
           aria-hidden="true"
         />
       )}
+
+      {/* Dropdown Panels (Desktop only) */}
+      <div
+        className="hidden md:block"
+        onMouseEnter={() => activeDropdown && handleDropdownEnter(activeDropdown)}
+        onMouseLeave={handleDropdownLeave}
+      >
+        <PlatformDropdown visible={activeDropdown === "Platform"} />
+        <FeaturesDropdown visible={activeDropdown === "Features"} />
+      </div>
     </header>
   );
 }
