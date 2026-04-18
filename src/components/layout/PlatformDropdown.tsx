@@ -137,7 +137,7 @@ const platformItems: PlatformItem[] = [
   },
   {
     title: "Repurpose & Distribution Engine",
-    description: "Turn one piece of content into many and distribute it automatically",
+    description: "Turn one piece of content into many and distribute\nit automatically",
     icon: <RepurposeIcon />,
   },
   {
@@ -152,7 +152,7 @@ const platformItems: PlatformItem[] = [
   },
   {
     title: "Social Media Automation",
-    description: "Schedule, publish, and manage content across channels",
+    description: "Schedule, publish, and manage content across\n channels",
     icon: <SocialAutomationIcon />,
   },
   {
@@ -191,24 +191,24 @@ export function PlatformDropdown({ visible }: PlatformDropdownProps) {
             PLATFORM
           </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-6">
             {platformItems.map((item) => (
               <button
                 key={item.title}
-                className="flex items-center gap-3 text-left rounded-[10px] transition-colors duration-200 hover:bg-[#F8F3FD] group cursor-pointer"
-                style={{ padding: "12px 18px 12px 5px" }}
+                className="flex items-center gap-2.5 text-left rounded-[8px] transition-colors duration-200 hover:bg-[#F8F3FD] group cursor-pointer w-fit max-w-full"
+                style={{ padding: "6px 10px 6px 4px" }}
               >
                 <div
-                  className="flex-shrink-0 flex items-center justify-center w-[46px] h-[46px] rounded-[10px]"
+                  className="flex-shrink-0 flex items-center justify-center w-[40px] h-[40px] rounded-[8px]"
                   style={{ background: "#FAF6FF" }}
                 >
                   {item.icon}
                 </div>
-                <div className="flex flex-col gap-1.5">
+                <div className="flex flex-col gap-1">
                   <span className="font-outfit font-normal text-[18px] leading-[23px] text-[#6D6D6D] group-hover:text-[#781EE0] transition-colors">
                     {item.title}
                   </span>
-                  <span className="font-outfit font-normal text-[13px] leading-[16px] text-[#A1A1A1]">
+                  <span className="font-outfit font-normal text-[13px] leading-[16px] text-[#A1A1A1] whitespace-pre-line">
                     {item.description}
                   </span>
                 </div>
