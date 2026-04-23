@@ -94,8 +94,8 @@ export function FeaturesDropdown({ visible }: FeaturesDropdownProps) {
                 {col.items.map((item) => (
                   <button
                     key={item.title}
-                    className="flex items-center gap-3 text-left rounded-[10px] transition-colors duration-200 hover:bg-[#F8F3FD] group cursor-pointer"
-                    style={{ padding: "12px 18px 12px 5px" }}
+                    className="flex items-center gap-3 text-left rounded-[10px] transition-colors duration-200 hover:bg-[#F8F3FD] group cursor-pointer w-full min-h-[78px]"
+                    style={{ padding: "8px 12px 8px 5px" }}
                   >
                     <div
                       className="flex-shrink-0 flex items-center justify-center w-[46px] h-[46px] rounded-[10px]"
