@@ -129,7 +129,7 @@ function AnalyticsIcon() {
   );
 }
 
-const platformItems: PlatformItem[] = [
+export const platformItems: PlatformItem[] = [
   {
     title: "AI Content Engine",
     description: "Generate content from ideas in seconds",

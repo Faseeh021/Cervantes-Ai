@@ -26,7 +26,7 @@ interface FeatureColumn {
   items: FeatureItem[];
 }
 
-const featureColumns: FeatureColumn[] = [
+export const featureColumns: FeatureColumn[] = [
   {
     heading: "AI VIDEOS",
     items: [

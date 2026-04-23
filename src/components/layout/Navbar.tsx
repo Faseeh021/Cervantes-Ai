@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { PlatformDropdown } from "./PlatformDropdown";
 import { FeaturesDropdown } from "./FeaturesDropdown";
+import { MobileMenu } from "./MobileMenu";
 
 const navItems = [
   { label: "Platform", href: "/", hasDropdown: true },
@@ -192,95 +193,8 @@ export function Navbar() {
       </div>
       </div>
 
-      {/* Mobile Menu Dropdown - Glass Effect */}
-      <div
-        className={`absolute top-full left-0 right-0 mt-2 mx-4 p-5 rounded-3xl md:hidden z-50 transition-all duration-300 ease-out ${
-          mobileMenuOpen
-            ? "opacity-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 -translate-y-4 pointer-events-none"
-        }`}
-        style={{
-          background: "linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(248, 243, 253, 0.8) 50%, rgba(245, 240, 255, 0.75) 100%)",
-          backdropFilter: "blur(24px) saturate(180%)",
-          WebkitBackdropFilter: "blur(24px) saturate(180%)",
-          border: "1px solid rgba(255, 255, 255, 0.6)",
-          boxShadow: "0 25px 50px rgba(120, 30, 224, 0.12), 0 10px 30px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.9)",
-        }}
-      >
-        <nav className="flex flex-col gap-1.5">
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="flex items-center justify-center py-3.5 px-4 rounded-xl font-plus-jakarta font-medium text-base transition-all duration-200 active:scale-[0.98] text-[#1a1a1a] hover:bg-gray-100"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
-          <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-gray-200">
-            {/* Login Button - same as desktop */}
-            <Link
-              href="/login"
-              className="flex items-center justify-center h-[48px] px-5 pr-2 gap-3 rounded-full active:scale-[0.98] transition-transform"
-              style={{
-                background: "#F8F3FD",
-                border: "1px solid #EEEEEE",
-              }}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="font-plus-jakarta font-semibold text-base text-[#0E0E0E]">
-                Log In
-              </span>
-              <span
-                className="flex items-center justify-center w-8 h-8 rounded-full"
-                style={{ background: "#9D4EDD" }}
-              >
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path
-                    d="M2.5 6H9.5M9.5 6L6.5 3M9.5 6L6.5 9"
-                    stroke="#FFFFFF"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
-            </Link>
-            {/* Start Free Button - same as desktop */}
-            <Link
-              href="/start-free"
-              className="flex items-center justify-center h-[48px] px-5 pr-2 gap-3 rounded-full active:scale-[0.98] transition-transform"
-              style={{ background: "#781EE0" }}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="font-plus-jakarta font-semibold text-base text-white">
-                Start Free
-              </span>
-              <span className="flex items-center justify-center w-8 h-8 bg-white rounded-full">
-                <svg width="12" height="11" viewBox="0 0 12 11" fill="none">
-                  <path
-                    d="M1 5.5H11M11 5.5L6.5 1M11 5.5L6.5 10"
-                    stroke="#000000"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
-            </Link>
-          </div>
-        </nav>
-      </div>
-
-      {/* Backdrop overlay for mobile menu */}
-      {mobileMenuOpen && (
-        <div
-          className="fixed inset-0 bg-black/20 md:hidden -z-10"
-          onClick={() => setMobileMenuOpen(false)}
-          aria-hidden="true"
-        />
-      )}
+      {/* Mobile Menu */}
+      <MobileMenu open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
 
       {/* Dropdown Panels (Desktop only) */}
       <div
